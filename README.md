@@ -1,6 +1,7 @@
 # pC-SAC Installation 
 
-This guide provides instructions for installing the pC-SAC software, which is used for chromatin structure analysis and computation.
+This guide provides instructions for installing the pC-SAC. 
+pC-SAC is a tool that uses adaptive importance sampling technique with sequential Monte Carlo to generate a set of three-dimensional chromatin chains to enhance low-resolution Hi-C data. 
 
 ## Prerequisites
 
@@ -22,9 +23,9 @@ Follow these steps to install pC-SAC:
 
 ### 1. Setup
 
-First, set the main directory where pC-SAC will be installed. Replace `/path/to/pC_SAC_G2` with the actual path on your system.
+First, set the main directory where pC-SAC will be installed. Replace `/path/to/pCSAC` with the actual path on your system.
 
-    export MAIN_DIR="/path/to/pC_SAC_G2"
+    export MAIN_DIR="/path/to/pCSAC"
 
 ### 2. Download and Install Eigen
 
@@ -45,7 +46,7 @@ Eigen is a dependency for pC-SAC. Download and install it using the following co
 Edit the CMakeLists.txt in the pC-SAC directory to include the path to the Eigen include directory:
 
     nano ${MAIN_DIR}/CMakeLists.txt
-    # Modify the include path to /path/to/pC_SAC_G2/eigen-3.4.0/include/
+    # Modify the include path to /path/to/pCSAC/eigen-3.4.0/include/
 
 Now, compile pC-SAC:
 
@@ -60,15 +61,16 @@ To verify that pC-SAC has been installed correctly, you can run a test using pro
 
 ### Files Description
 
-Within the `test_toy` directory, you will find several example input files required for running pC-SAC. Please explore these files in order to understand each required input:
+Within the `test_toy` directory, you will find several example input files required for running pC-SAC. Please explore these files to understand each required input:
+Additionally, `input_generation` directory contains Python build functions to generate these files.
 
-- `int_mat_seg_len.txt`: Length of this file represents the length of any chain for a given reconstruction.
-- `interaction_matrix.txt`: Initial long-range probabilities.
+- `int_mat_seg_len.txt`: Length (number of rows) of this file represents the length of any chain for a given reconstruction. Each row represents the amount of DNA in each node (i.e. the radius) of a chromatin chain, either on amstrongs or base-pairs.
+- `interaction_matrix.txt`: Initial low-resolution probabilities.
 - `test.conf`: Configuration file with pC-SAC parameters.
 
 Navigate to the test data directory:
 
-    cd ${MAIN_DIR}/script/test_data
+    cd ${MAIN_DIR}/script/test_toy
 
 Set the LD_LIBRARY_PATH to include the Boost library path:
 
