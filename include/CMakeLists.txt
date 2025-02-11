@@ -1,0 +1,23 @@
+add_library(
+    XYFunctions
+    XYEigen.cpp
+    XYEnsemble.cpp
+    XYFile.cpp
+    XYLapack.cpp
+    XYMath.cpp
+    XYMath.inl
+    XYMatrix.inl
+    XYPDB.cpp
+    XYPDBAtom.cpp
+    XYPoint3D.inl
+    XYUtility.cpp
+    XYVector.inl
+    XYSIS.cpp
+    XYSO3Sequence.cpp
+    ConfigFile.cpp
+    tree.hh
+    tree_util.hh
+    octree.cpp
+    octree.hpp
+)
+

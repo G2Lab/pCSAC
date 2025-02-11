@@ -1,0 +1,221 @@
+/*
+ * XYSIS.h
+ * Author: Yun Xu
+ * Email: yxu7@uic.edu
+ * Date: Nov 27, 2011
+ */
+#ifndef XYENSEMBLE_H
+#define XYENSEMBLE_H
+#include <iostream>
+
+#include "XYMatrix.h"
+#include "tree.hh"
+#include "tree_util.hh"
+#include "XYMath.h"
+#include "MersenneTwister.h"
+#include "XYSO3Sequence.h"
+#include "XYUtility.h"
+#include "XYOctree.h"
+#include <functional>
+#include <algorithm>
+#include <list>
+#include <map>
+#include <deque>
+
+
+using namespace std;
+
+struct RefOrder {
+	bool operator ()(pair<int, int> const& left, pair<int, int> const& right) {
+		return left.first < right.first;
+	}
+};
+
+
+
+
+class CXYSIS{
+public:
+	CXYSIS();
+	CXYSIS(
+		char* cOutPath,
+		float fPersistenLength,
+		float fCollisionLength,
+		float fPackingDensity,
+		float fNucleusSphereDiameter,
+		int iNumNodes,
+		int iNumSamplePoints,
+		char* cStartEndFile,
+		int iMmax,
+		float fRho_1,
+		float fRho_2,
+		float fRho_3,
+		float fTau_t,
+		float fAdjust,
+		char* cDistFile);
+		
+	~CXYSIS(void);
+	
+	// set and get bindingangle begin
+	void SetBendingAngleBeg(float fAng);
+	float GetBendingAngleBeg(void);
+	
+	// set and get bindingangle end
+	void SetBendingAngleEnd(float fAng);
+	float GetBendingAngleEnd(void);
+	
+	// set and get number of binding angles
+	void SetNumBendingAngle(int iNum);
+	int GetNumBendingAngle(void);
+	
+	// set and get number of torsion angles
+	void SetNumTorsionAngle(int iNum);
+	int GetNumTorsionAngle(void);
+	
+	// set and get torsionangle begin
+	void SetTorsionAngleBeg(float fAng);
+	float GetTorsionAngleBeg(void);
+	
+	// set and get torsionangle end
+	void SetTorsionAngleEnd(float fAng);
+	float GetTorsionAngleEnd(void);
+	
+	// set and get persistence length
+	void SetPersistenceLength(float fPL);
+	float GetPersistenceLength(void);
+	
+	// set and get collision length
+	void SetCollisionLength(float fCollision);
+	float GetCollisionLength(void);
+	
+	void SetPackingDensity(float fPackingDensity);
+	float GetPackingDensity(void);
+	
+	// set and get number of nodes
+	void SetNumNodes(int iNumNodes);
+	int GetNumNodes(void);
+	
+	void SetSamplesOrg();
+	CXYMatrix<float> GetSamplesOrg();
+
+	// use V1->V2 as Z axis, reconstruct new xyz coordinate system
+	CXYMatrix<float> NewXYZ(CXYVector<float> kV_1, CXYVector<float> kV_2);
+	CXYMatrix<float> NewXYZ(CXYVector<float> kV_0, CXYVector<float> kV_1, CXYVector<float> kV_2);
+	// get rotation matrix
+	CXYMatrix<float> GetRotMatrix(CXYMatrix<float> &rkMXYZ);
+	
+	// get node samples based on current node
+	CXYMatrix<float> GetNodeSamples(tree<CXYVector<float> >::iterator  &itNode, int iSegInd);
+	
+	
+	// initialize chain (0, 0, 0) and (0, 0, PersistenceLength)
+	void InitializeChain();
+	tree< CXYVector<float> >* GetTree();
+	CXYVector<float> RndSetStartPoint(void);
+	
+
+	void SetNucleusSphereDiameter(float fNucleusSphereDiameter);
+	float GetNucleusSphereDiameter(void);
+	
+	bool IsInsideSphere(CXYVector<float> kV_point);
+	bool IsInsideSphere(float* fCoord);
+	bool IsCollision(tree<CXYVector<float> >::iterator  &ritNode, CXYVector<float> kV_point);
+
+	// growth chain
+	bool GrowthOneChain();
+
+	void WriteChain(char* fn);
+	void WriteDistance(char* fn);	
+	void SetOutPath(char* cPathName);
+	char* GetOutPath(void);
+	void SetSegLengths(void);
+//	void SetSegLengths(char* cStartEndFile);
+	void SetSegLengths(char* cStartEndFile,const char* cMethod);
+
+	vector<float> & GetSegLengths(void);
+	float GetSegLength(int ind);
+	
+	// for SIS
+	void SetMmax(int iMmax);
+	int GetMmax(void);
+
+	void SetRho_1(float fRho_1);
+	float GetRho_1(void);
+	void SetRho_2(float fRho_2);
+	float GetRho_2(void);
+	void SetRho_3(float fRho_3);
+	float GetRho_3(void);
+	void SetTau_t(float fTau_t);
+	float GetTau_t(void);
+	void SetAjust(float fAjust);
+	float GetAjust(void);
+
+	void SIS_Algorithm(void);
+	void SetDistFileName(char* cFileName);
+	char* GetDistFileName(void);
+	void SetDistMatrix(void);
+	CXYMatrix<float>& GetDistMatrix(void);
+	vector<tree<CXYVector<float> >::iterator > GetNodeSet(int iLevel);	
+	CXYMatrix<float> GrowthChain(tree< CXYVector<float> >::iterator &ritNode, 
+																CXYVector<float> &rkVPoint);
+	CXYMatrix<float> GrowthChain_NoCon(tree< CXYVector<float> >::iterator &ritNode, 
+																		 CXYVector<float> &rkVPoint);
+	float CalBeta_t(CXYMatrix<float> &kM);
+	float BinSearchConstC(vector<float> vfBeta_t);
+	float h1Function(CXYMatrix<float>& kM);
+	float h2Function(CXYMatrix<float>& kM);
+	int GetCountContactNode(int iNode);
+	void GetTargetDistribution(void);
+	int GetCountContactNode_All(int iNode);
+	void WritePDB(char* cFN, CXYMatrix<float>& kM, int iInd);
+	void WritePDBArr(void);
+	void GetOneChain(CXYMatrix<float>& rkM,
+									 tree<CXYVector<float > >::iterator itNode);
+	void InitializeChain_SISRoot();
+	void WritePtsArr(void);
+	
+	map<int,float> GetContactMap(int iNode);
+	int GetCountContactNodesFromMap(int ind);
+	void RandomPermutation(int ArrN[], int n, int ArrM[], int m); // N > M
+	CXYVector<float> GetNodeNextPosition(tree<CXYVector<float> >::iterator  &ritNode, int iSegInd, int ind);
+	
+	vector<int> GetPrvContactsListFromMap(int ind);
+	void GrowOneChain_ByVector(  tree< CXYVector<float> >::iterator &ritCurNode, 
+  tree< CXYVector<float> >::iterator &ritSurfNode,  int SegInd, vector<tree<CXYVector<float> >::iterator>* pvCahin);
+	void CalBeta_t_ByVector(vector< vector<tree<CXYVector<float> >::iterator >* >& rvvChains,  int iSegInd, vector<float>& rvfBeta_t);
+	void h1Function_ByVector(vector<tree<CXYVector<float> >::iterator >& rvOneChain);
+	void h2Function_ByVector(vector<tree<CXYVector<float> >::iterator >& rvOneChain, CXYVector<float>& rKV_Dist);
+	void h3Function_ByVector(vector<tree<CXYVector<float> >::iterator >& rvOneChain, CXYVector<float>& rKV_Dist);
+	CXYVector<float> GetPrvContactsDistFromMap(int ind);
+	
+	float GetNoConMaxDist(int iSegInd);
+	CXYVector<float> GetPrvConPosition(tree<CXYVector<float> >::iterator  &ritNode, int iSegInd);
+private:
+	char* m_cOutPath;
+	float m_fPersistenceLength; // persistence length
+	float m_fCollisionLength;   // collision length
+	float m_fPackingDensity;   // packing density
+	float m_fNucleusSphereDiameter; 
+	int   m_iNumNodes;
+	int   m_iNumSamplePoints;
+	CXYMatrix<float>* m_pMSamplesOrg;
+	
+	tree< CXYVector<float> >* m_pTChain; // tree stored coordinates
+	
+	vector<float> m_vfSegLength; // vector of segment length (may different)
+
+	// for SIS
+	int m_iMmax; // number of samples selected
+	float m_fRho_1, m_fRho_2, m_fRho_3, m_fTau_t; // function parameter
+	float m_fAdjust; // adjust gamma matrix
+	char* m_cDistFileName;
+	CXYMatrix<float>* m_pMDist;
+	CXYVector<float>* m_pVErr;
+	CXYVector<float>* m_pVEColl;
+	vector<CXYTriple<int,int,float> > m_vtriple;
+
+	vector<int> m_vConNodeInd; // unique sorted connection node index
+	deque<tree<CXYVector<float> >::iterator> m_qPrvNodes;
+};
+
+#endif

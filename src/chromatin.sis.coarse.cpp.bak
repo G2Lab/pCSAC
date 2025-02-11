@@ -1,0 +1,114 @@
+#include <iostream>
+#include <ctime>
+#include "XYSIS.h"
+#include "XYMath.h"
+#include "XYFile.h"
+#include "XYUtility.h"
+#include "tree.hh"
+#include "ConfigFile.h"
+
+void usage(){
+	printf ("Usage: chromatin.sis.coarse --configfile ConfigFile\n");
+	printf ("       --configfile     ConfigFile\n");
+	exit(0);
+}
+
+using namespace std;
+int main(int argc, char * argv[])
+{
+  const size_t NEWSIZE=1024;
+	char cConfigFile[NEWSIZE] = "";
+
+	// read argv
+  // http://stackoverflow.com/questions/441547/most-efficient-way-to-process-arguments-from-the-command-line-in-c  
+	vector<string> args(argv + 1, argv + argc);
+  // Loop over command-line args
+  // (Actually I usually use an ordinary integer loop variable and compare
+  // args[i] instead of *i -- don't tell anyone! ;)
+  for (vector<string>::iterator i = args.begin(); i != args.end(); ++i) {
+		if (*i == "-h" || *i == "--help" ) {
+			usage();
+			return 0;
+		} else if (*i == "--configfile") {
+			strcpy(cConfigFile, (*++i).c_str());
+			cout << "Reading ConfigFile... " << endl ;
+		}
+	}
+	
+	if (strcmp(cConfigFile, "") == 0) {
+		usage();
+	}
+	
+	CXYFile kFile;
+	if (!kFile.FileExists(cConfigFile) ) {
+		cout << "File " << cConfigFile << " do not exist" << endl ;
+		exit(0);
+	}
+
+	// read configuration file
+	ConfigFile config(cConfigFile);
+	float fBindingAngleBeg, fBindingAngleEnd, fTorsionAngleBeg, fTorsionAngleEnd ;
+	int iNumBindingAngle, iNumTorsionAngle;
+	float fPersistenLength, fCollisionLength;
+	float fPackingDensity;
+	int iMmax;
+	char cSegLenFile[NEWSIZE], cOutPath[NEWSIZE], cLogOddsRatioFile[NEWSIZE];
+	string sSegLenFile, sOutPath, sLogOddsRatioFile;
+	float fRho_1, fRho_2, fTau_t, fAdjust;
+	
+
+	config.readInto(sSegLenFile, "seg_len_file");	strcpy(cSegLenFile, sSegLenFile.c_str());
+//	config.readInto(sInvProbFile,  "inv_prob_file"); strcpy(cInvProbFile, sInvProbFile.c_str());
+	config.readInto(sLogOddsRatioFile,  "log_oddsratio_file"); strcpy(cLogOddsRatioFile, sLogOddsRatioFile.c_str());
+	config.readInto(sOutPath, "out_path"); strcpy(cOutPath, sOutPath.c_str());
+
+	config.readInto( fBindingAngleBeg, "binding_angle_begin", 0.f);
+	config.readInto( fBindingAngleEnd, "binding_angle_end", 90.f);
+	config.readInto( iNumBindingAngle, "number_binding_angle", 15);
+
+	config.readInto( fTorsionAngleBeg, "torsion_angle_begin", 0.f);
+	config.readInto( fTorsionAngleEnd, "torsion_angle_end", 360.f);
+	config.readInto( iNumTorsionAngle, "number_torsion_angle", 18);
+	
+	config.readInto( fPersistenLength, "persistence_length", 7000.0f);
+	config.readInto( fCollisionLength, "collision_length", fPersistenLength);
+	config.readInto( fPackingDensity, "packing_density", 0.07f);
+									
+	config.readInto( iMmax, "M_max", 10);
+	
+	config.readInto( fRho_1, "rho_1", 1.0f);
+	config.readInto( fRho_2, "rho_2", 10.f);
+	config.readInto( fTau_t, "tau_t", 1.f);
+	config.readInto( fAdjust, "adjust", 1e-6f);
+	
+	cout << config << endl;
+
+	
+	CXYMath<float> kMath;
+	CXYSIS SIS(	
+		cSegLenFile,
+		cLogOddsRatioFile,
+		cOutPath,
+
+		fBindingAngleBeg, 
+		fBindingAngleEnd, 
+		iNumBindingAngle,
+		fTorsionAngleBeg,
+		fTorsionAngleEnd,
+		iNumTorsionAngle,
+		fPersistenLength,
+		fCollisionLength,
+		fPackingDensity,
+		iMmax,
+
+		fRho_1,
+		fRho_2,
+		fTau_t,
+		fAdjust);
+
+//
+	SIS.SIS_Algorithm();
+	return 0;
+}
+
+

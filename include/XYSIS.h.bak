@@ -1,0 +1,279 @@
+/*
+ *  XYSIS.h
+ *  CHROMTIN_SIS_COARSE
+ *
+ *  Created by Yun Xu on 3/24/11.
+ *  Copyright 2011 . All rights reserved.
+ *
+ */
+#ifndef XYSIS_H
+#define XYSIS_H
+
+#include <iostream>
+#include <functional>
+#include <vector>
+#include "XYMatrix.h"
+#include "tree.hh"
+#include "XYMath.h"
+#include "MersenneTwister.h"
+
+
+
+//template <class Real>
+using namespace std;
+
+template<class T1, class T2 >
+struct sort_pair_first_greater {
+	bool operator()(const pair<T1,T2>&left, const pair<T1,T2>&right) {
+		return left.first > right.first;
+	}
+};
+
+class CXYSIS{
+public:
+	// constructor
+	CXYSIS();
+	CXYSIS(
+	 char* cOutPath,
+	 float fPersistenLength,
+	 float fCollisionLength,
+	 float fPackingDensity,
+	 float fNucleusSphereDiameter,
+	 int iNumNodes,
+	 int iNumSamplePoints,
+	 char* cStartEndFile);
+	CXYSIS(
+				 char* cSegLenFileName,
+				 char* cLogOddsRatioFileName,
+				 char* cOutPathName,
+				 
+				 float fBindingAngleBeg, 
+				 float fBindingAngleEnd, 
+				 int iNumBindingAngle,
+				 float fTorsionAngleBeg,
+				 float fTorsionAngleEnd,
+				 int iNumTorsionAngle,
+				 float fPersistenLength,
+				 float fCollisionLength,
+				 float fPackingDensity,
+				 
+				 int iMmax,
+				 
+//				 char* cDataSet,
+//				 char* cCell,
+//				 char* cChrNo,
+//				 int iResolution,
+//				 char* cInteractType,
+//				 char* cDataPath,
+//				 char* cAnalysisPath,
+//				 char* cPDBPath,
+				 float fRho_1,
+				 float fRho_2,
+				 float fTau_t,
+				 float fAdjust);
+	// destructor
+	~CXYSIS(void);
+	
+	// set and get bindingangle begin
+	void SetBindingAngleBeg(float fAng);
+	float GetBindingAngleBeg(void);
+
+	// set and get bindingangle end
+	void SetBindingAngleEnd(float fAng);
+	float GetBindingAngleEnd(void);
+	
+	// set and get number of binding angles
+	void SetNumBindingAngle(int iNum);
+	int GetNumBindingAngle(void);
+
+	// set and get number of torsion angles
+	void SetNumTorsionAngle(int iNum);
+	int GetNumTorsionAngle(void);
+	
+	// set and get torsionangle begin
+	void SetTorsionAngleBeg(float fAng);
+	float GetTorsionAngleBeg(void);
+	
+	// set and get torsionangle end
+	void SetTorsionAngleEnd(float fAng);
+	float GetTorsionAngleEnd(void);
+
+	// set and get persistence length
+	void SetPersistenceLength(float fPL);
+	float GetPersistenceLength(void);
+
+	// set and get collision length
+	void SetCollisionLength(float fCollision);
+	float GetCollisionLength(void);
+	
+//	// set and get Mmax
+	void SetMmax(int iMmax);
+	int GetMmax(void);
+
+//	// set and get gamma file name
+//	void SetGammaFileName(void);
+//	char* GetGammaFileName(void);
+//	
+//	// get gamma matrix
+//	void SetGammaMatrixByGammaFile(void);
+//	void SetGammaMatrixByObsexpFile(void);
+//	void SetGammaMatrixByObsexpFile_New(void);
+//	CXYMatrix<float> GetGammaMatrix(void);
+//	
+//	// set and get gamma^(3/2) matrix to save time
+//	void SetGamma_32Matrix(void);
+//	CXYMatrix<float> GetGamma_32Matrix(void);
+
+	// set and get Beta_t
+	float CalBeta_t(CXYMatrix<float> &kM);
+	
+	// get original samples
+	void SetSamplesOrg();
+	CXYMatrix<float> GetSamplesOrg();
+	
+	// initialize chain (0, 0, 0) and (0, 0, PL)
+	void InitializeChain();
+	tree< CXYVector<float> >* GetTree();
+
+	vector< tree< CXYVector<float> >::iterator > GetNodeSet(int iLevel);
+
+	// get node samples based on current node
+	CXYMatrix<float> GetNodeSamples(tree<CXYVector<float> >::iterator  &itNode, int iSegInd);
+	
+	// use V1->V2 as Z axis, reconstruct new xyz coordinate system
+	CXYMatrix<float> NewXYZ(CXYVector<float> kV_1, CXYVector<float> kV_2);
+	CXYMatrix<float> NewXYZ(CXYVector<float> kV_0, CXYVector<float> kV_1, CXYVector<float> kV_2);
+	
+	// get rotation matrix
+	CXYMatrix<float> GetRotMatrix(CXYMatrix<float> &rkMXYZ);
+	
+	// growth chain
+	CXYMatrix<float> GrowthChain(tree< CXYVector<float> >::iterator &ritNode, CXYVector<float> &rkVPoint);
+	
+	// binary search
+	float BinSearchConstC(vector<float> vfBeta_t);
+	
+	float h1Function(CXYMatrix<float>& kM);
+	float h2Function(CXYMatrix<float>& kM);
+
+	CXYMatrix<float> GetChain(tree<CXYVector<float > >::iterator itNode);
+	
+	// set importance weight
+//	void	SetImportanceWeight(CXYMatrix<float>& kM);
+	void	SetNormalizeImportanceWeight();
+	
+	void WritePDB(char* cFN, CXYMatrix<float>& kM, int iInd);
+	
+//	void SetDataSet(char* cDataSet);
+//	char* GetDataSet(void);
+//	
+//	void SetCell(char* cCell);
+//	char* GetCell(void);
+//	
+//	void SetChrNo(char* cChrNo);
+//	char* GetChrNo(void);
+//	
+//	void SetResolution(int iResolution);
+//	int GetResolution(void);
+//	
+//	void SetInteractType(char* cInteractType);
+//	char* GetInteractType(void);
+//	
+//	void SetDataPath(char* cDataPath);
+//	char* GetDataPath(void);
+//	
+//	void SetAnalysisPath(char* cAnalysisPath);
+//	char* GetAnalysisPath(void);
+//	
+//	void SetPDBPath(char* cPDBPath);
+//	char* GetPDBPath(void);
+//	
+//	void SetObsexpFileName(void);
+//	char* GetObsexpFileName(void);
+	
+	void SetRho_1(float fRho_1);
+	float GetRho_1(void);
+	void SetRho_2(float fRho_2);
+	float GetRho_2(void);
+	void SetTau_t(float fTau_t);
+	float GetTau_t(void);
+	void SetAjust(float fAjust);
+	float GetAjust(void);
+	
+//	void SetGammaMatrix(void);
+	void WritePDBArr(void);
+	
+	void SIS_Algorithm(void);
+
+//	void SetObsexpMatrix(void);
+//	CXYMatrix<float> GetObsexpMatrix(void);
+	
+	int GetCountContactNode(int iNode);
+	int GetCountContactNode_All(int iNode);
+//	void SetConnetVector(void);
+	
+	void SetSegLenFileName(char* cFileName);
+	char* GetSegLenFileName(void);
+	
+	void SetLogOddsRatioFileName(char* cFileName);
+	char* GetLogOddsRatioFileName(void);
+	
+	void SetOutPath(char* cPathName);
+	char* GetOutPath(void);
+	
+	void SetLogOddsRatioMatrix(void);
+	CXYMatrix<float> GetLogOddsRatioMatrix(void);
+	
+	void SetSegLenVector(void);
+	CXYVector<int> GetSegLenVector(void);
+	int GetSegLen(int ind);
+	
+	void SetPackingDensity(float fPackingDensity);
+	float GetPackingDensity(void);
+	
+	float GetGeomDist(int fSegLen);
+	
+private:
+	float m_fBindingAngleBeg; // binding angle begin
+	float m_fBindingAngleEnd; // binding angle end
+	float m_fTorsionAngleBeg;	// torsion angle begin
+	float m_fTorsionAngleEnd;	// torsion angle end
+	int m_iNumBindingAngle; 	// number of binding angle
+	int m_iNumTorsionAngle; 	// number of torsion angle
+	float m_fPersistenceLength; // persistence length
+	float m_fCollisionLength;   // collision length
+	int m_iMmax; // number of samples selected
+	CXYMatrix<float>* m_pMSamplesOrg; // samples from (0,0,0) and (0,0,PL)
+	tree< CXYVector<float> >* m_pTChain; // tree stored coordinates
+	float m_fRho_1, m_fRho_2, m_fTau_t; // function parameter
+	float m_fAdjust; // adjust gamma matrix
+	
+	char* m_cSegLenFileName;
+	char* m_cLogOddsRatioFileName;
+	char* m_cOutPath;
+	CXYMatrix<float>* m_pMLogOddsRatio;
+	CXYVector<int>* m_pVSegLen;
+	float m_fPackingDensity;
+
+	CXYVector<float>* m_pVErr;
+	CXYVector<float>* m_pVEColl;
+//	char* m_cGammaFileName; // gamma file name
+//	CXYMatrix<float>* m_pMGamma; // gamma matrix
+//	CXYMatrix<float>* m_pMGamma_32; // gamma matrix
+//	char* m_cDataSet;
+//	char* m_cCell;
+//	char* m_cChrNo;
+//	int m_iResolution;
+//	char* m_cInteractType;
+//	char* m_cDataPath;
+//	char* m_cAnalysisPath;
+//	char* m_cPDBPath;
+//	char* m_cObsexpFileName; // obsexp file name
+	
+//	CXYMatrix<float>* m_pMObsexp;
+//	vector<vector<bool> >* m_pVConnect;
+
+};
+
+#endif
+

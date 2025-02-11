@@ -1,0 +1,9 @@
+prefix=/gpfs/commons/home/cangel/g2lab/projects/01_12_23_highResolutionHiC/scripts/C++/pC_SAC/eigen-3.4.0
+exec_prefix=${prefix}
+
+Name: Eigen3
+Description: A C++ template library for linear algebra: vectors, matrices, and related algorithms
+Requires:
+Version: 3.4.0
+Libs:
+Cflags: -I${prefix}/include

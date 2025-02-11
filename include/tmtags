@@ -1,0 +1,679 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+BaseName	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^char* CXYUtility::BaseName(char *name, int with_suffix)$/;"	function	line:68
+BinSearchConstC	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::BinSearchConstC(vector<float> vfBeta_t)$/;"	function	line:878
+CONFIGFILE_H	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^#define CONFIGFILE_H$/;"	macro	line:44
+CXYEigen	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^CXYEigen<Real>::CXYEigen (const CXYMatrix<Real>& rkM)$/;"	function	line:20
+CXYEigen	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^CXYEigen<Real>::CXYEigen (int iSize)$/;"	function	line:7
+CXYEigen	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^class CXYEigen{$/;"	class	line:5
+CXYEnsemble	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^CXYEnsemble::CXYEnsemble($/;"	function	line:8
+CXYEnsemble	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^CXYEnsemble::CXYEnsemble()$/;"	function	line:4
+CXYEnsemble	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^class CXYEnsemble{$/;"	class	line:27
+CXYFile	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYFile::CXYFile(void)$/;"	function	line:8
+CXYFile	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^class CXYFile$/;"	class	line:24
+CXYLapackEigen	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^CXYLapackEigen<Real>::CXYLapackEigen (const CXYMatrix<Real>& rkM)$/;"	function	line:38
+CXYLapackEigen	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^CXYLapackEigen<Real>::CXYLapackEigen (int iSize)$/;"	function	line:19
+CXYLapackEigen	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^class CXYLapackEigen{$/;"	class	line:12
+CXYMath	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^class CXYMath$/;"	class	line:19
+CXYMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^class CXYMatrix$/;"	class	line:6
+CXYMatrixd	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^typedef CXYMatrix<double>	CXYMatrixd;$/;"	typedef	line:116
+CXYMatrixf	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^typedef CXYMatrix<float>	CXYMatrixf;$/;"	typedef	line:115
+CXYPDB	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^CXYPDB::CXYPDB(void)$/;"	function	line:9
+CXYPDB	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.h	/^class CXYPDB $/;"	class	line:12
+CXYPDBAtom	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^CXYPDBAtom::CXYPDBAtom(void):$/;"	function	line:11
+CXYPDBAtom	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^class CXYPDBAtom$/;"	class	line:98
+CXYPoint3D	/Users/yunxu/workspace/projects/chromatin/include/XYPoint3D.h	/^class CXYPoint3D$/;"	class	line:8
+CXYPoint3Dd	/Users/yunxu/workspace/projects/chromatin/include/XYPoint3D.h	/^typedef CXYPoint3D<double> CXYPoint3Dd;$/;"	typedef	line:68
+CXYPoint3Df	/Users/yunxu/workspace/projects/chromatin/include/XYPoint3D.h	/^typedef CXYPoint3D<float> CXYPoint3Df;$/;"	typedef	line:67
+CXYSIS	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYSIS::CXYSIS($/;"	function	line:8
+CXYSIS	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYSIS::CXYSIS()$/;"	function	line:4
+CXYSIS	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^class CXYSIS{$/;"	class	line:44
+CXYSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^CXYSO3Sequence::CXYSO3Sequence(){$/;"	function	line:47
+CXYSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^CXYSO3Sequence::CXYSO3Sequence(int iNumPoints){$/;"	function	line:53
+CXYSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^class CXYSO3Sequence {$/;"	class	line:62
+CXYStringTokenizer	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   CXYStringTokenizer( ) {};$/;"	function	line:106
+CXYStringTokenizer	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   CXYStringTokenizer(const string& s, const char* delim = NULL) :$/;"	function	line:58
+CXYStringTokenizer	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^class CXYStringTokenizer {$/;"	class	line:54
+CXYUtility	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^CXYUtility::CXYUtility(void)$/;"	function	line:6
+CXYUtility	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.h	/^class CXYUtility{$/;"	class	line:18
+CXYVector	/Users/yunxu/workspace/projects/chromatin/include/XYVector.h	/^class CXYVector$/;"	class	line:9
+CXYVectord	/Users/yunxu/workspace/projects/chromatin/include/XYVector.h	/^typedef CXYVector<double> CXYVectord;$/;"	typedef	line:72
+CXYVectorf	/Users/yunxu/workspace/projects/chromatin/include/XYVector.h	/^typedef CXYVector<float> CXYVectorf;$/;"	typedef	line:71
+CalBeta_t	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::CalBeta_t(CXYMatrix<float> &kM)$/;"	function	line:863
+ConfigFile	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^ConfigFile::ConfigFile( string filename, string delimiter,$/;"	function	line:7
+ConfigFile	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^ConfigFile::ConfigFile()$/;"	function	line:21
+ConfigFile	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^class ConfigFile {$/;"	class	line:54
+DecrSortEigenStuffN	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::DecrSortEigenStuffN ()$/;"	function	line:365
+DecreasingSort	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::DecreasingSort ()$/;"	function	line:270
+DirExists	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^bool CXYFile::DirExists(const char* cDirName){$/;"	function	line:505
+Distance	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^float CXYUtility::Distance(CXYPoint3D<float> P1,CXYPoint3D<float> P2)$/;"	function	line:41
+EigenStuffN	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::EigenStuffN ()$/;"	function	line:357
+Eigend	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^typedef CXYEigen<double> Eigend;$/;"	typedef	line:69
+Eigenf	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^typedef CXYEigen<float> Eigenf;$/;"	typedef	line:68
+EulerAngle	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^typedef struct EulerAngle{$/;"	struct	line:55
+EulerAngle	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^} EulerAngle;$/;"	typedef	line:59
+FastInvSqrt	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^double CXYMath<double>::FastInvSqrt (double dValue)$/;"	function	line:32
+FastInvSqrt	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^float CXYMath<float>::FastInvSqrt (float fValue)$/;"	function	line:21
+FileExists	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^bool CXYFile::FileExists(const char* cFileName){$/;"	function	line:488
+GetAjust	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetAjust(void)$/;"	function	line:596
+GetAltLoc	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetAltLoc()$/;"	function	line:163
+GetAtomicSym	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetAtomicSym()$/;"	function	line:127
+GetBranchDes	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetBranchDes()$/;"	function	line:151
+GetChainID	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetChainID()$/;"	function	line:187
+GetCharge	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetCharge()$/;"	function	line:292
+GetCollisionLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^float CXYEnsemble::GetCollisionLength(void)$/;"	function	line:74
+GetCollisionLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetCollisionLength(void)$/;"	function	line:98
+GetContactMap	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^map<int, float> CXYSIS::GetContactMap(int iNode){$/;"	function	line:1458
+GetCountContactNode	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^int CXYSIS::GetCountContactNode(int iNode)$/;"	function	line:1011
+GetCountContactNode_All	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^int CXYSIS::GetCountContactNode_All(int iNode)$/;"	function	line:1159
+GetDistFileName	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^char* CXYSIS::GetDistFileName(void)$/;"	function	line:739
+GetDistMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYMatrix<float>& CXYSIS::GetDistMatrix(void)$/;"	function	line:780
+GetEigenValue	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^Real CXYLapackEigen<Real>::GetEigenValue (int i) const$/;"	function	line:114
+GetEigenValues	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^CXYVector<Real> CXYLapackEigen<Real>::GetEigenValues() const$/;"	function	line:128
+GetEigenVector	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^CXYVector<Real> CXYLapackEigen<Real>::GetEigenVector (int i) const$/;"	function	line:135
+GetEigenVectors	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^const CXYMatrix<Real>& CXYLapackEigen<Real>::GetEigenVectors () const$/;"	function	line:141
+GetEigenvalue	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^Real CXYEigen<Real>::GetEigenvalue (int i) const$/;"	function	line:52
+GetEigenvalues	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^const Real* CXYEigen<Real>::GetEigenvalues () const$/;"	function	line:58
+GetEigenvector	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^CXYVector<Real> CXYEigen<Real>::GetEigenvector (int i) const$/;"	function	line:64
+GetEigenvectors	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^const CXYMatrix<Real>& CXYEigen<Real>::GetEigenvectors () const$/;"	function	line:70
+GetElement	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetElement()$/;"	function	line:280
+GetICode	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetICode()$/;"	function	line:208
+GetMmax	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^int CXYSIS::GetMmax(void)$/;"	function	line:556
+GetName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetName()$/;"	function	line:115
+GetNodeSamples	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYMatrix<float> CXYSIS::GetNodeSamples(tree<CXYVector<float> >::iterator  &ritNode, int iSegInd)$/;"	function	line:831
+GetNodeSet	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^vector<tree<CXYVector<float> >::iterator > CXYSIS::GetNodeSet(int iLevel)$/;"	function	line:785
+GetNucleusSphereDiameter	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^float CXYEnsemble::GetNucleusSphereDiameter(void)$/;"	function	line:94
+GetNucleusSphereDiameter	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetNucleusSphereDiameter(void)$/;"	function	line:118
+GetNumNodes	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^int CXYEnsemble::GetNumNodes(void){$/;"	function	line:103
+GetNumNodes	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^int CXYSIS::GetNumNodes(void){$/;"	function	line:127
+GetNumPoints	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^int CXYSO3Sequence::GetNumPoints(){$/;"	function	line:342
+GetOccupancy	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^float CXYPDBAtom::GetOccupancy()$/;"	function	line:250
+GetOneChain	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::GetOneChain(CXYMatrix<float>& rkM,$/;"	function	line:1327
+GetOutPath	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^char* CXYEnsemble::GetOutPath(void)$/;"	function	line:503
+GetOutPath	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^char* CXYSIS::GetOutPath(void)$/;"	function	line:489
+GetPDBAtoms	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^const vector<CXYPDBAtom >* CXYPDB::GetPDBAtoms() const$/;"	function	line:57
+GetPDBAtoms	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^vector<CXYPDBAtom >* CXYPDB::GetPDBAtoms()$/;"	function	line:52
+GetPDBIndex	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^int CXYPDB::GetPDBIndex(int iResSeq)$/;"	function	line:81
+GetPackingDensity	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^float CXYEnsemble::GetPackingDensity(void)$/;"	function	line:84
+GetPackingDensity	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetPackingDensity(void)$/;"	function	line:108
+GetPersistenceLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^float CXYEnsemble::GetPersistenceLength(void)$/;"	function	line:62
+GetPersistenceLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetPersistenceLength(void)$/;"	function	line:86
+GetPoint	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^CXYPoint3D<float> CXYPDBAtom::GetPoint() const$/;"	function	line:304
+GetRecName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char * CXYPDBAtom::GetRecName()$/;"	function	line:94
+GetRemoteInd	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetRemoteInd()$/;"	function	line:139
+GetResName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetResName()$/;"	function	line:175
+GetResSeq	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^int CXYPDBAtom::GetResSeq()$/;"	function	line:199
+GetRho_1	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetRho_1(void)$/;"	function	line:566
+GetRho_2	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetRho_2(void)$/;"	function	line:576
+GetSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^CXYMatrix<float>& CXYSO3Sequence::GetSO3Sequence(){$/;"	function	line:417
+GetSamplesOrg	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^CXYMatrix<float> CXYEnsemble::GetSamplesOrg()$/;"	function	line:116
+GetSamplesOrg	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYMatrix<float> CXYSIS::GetSamplesOrg()$/;"	function	line:140
+GetSegID	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^char *CXYPDBAtom::GetSegID()$/;"	function	line:268
+GetSegLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^float CXYEnsemble::GetSegLength(int ind){$/;"	function	line:550
+GetSegLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetSegLength(int ind){$/;"	function	line:539
+GetSegLengths	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^vector<float> & CXYEnsemble::GetSegLengths(void){$/;"	function	line:546
+GetSegLengths	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^vector<float> & CXYSIS::GetSegLengths(void){$/;"	function	line:535
+GetSequenceBase	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^vector<int >& CXYSO3Sequence::GetSequenceBase(){$/;"	function	line:337
+GetSerial	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^int	CXYPDBAtom::GetSerial()$/;"	function	line:106
+GetTargetDistribution	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::GetTargetDistribution(void)$/;"	function	line:1026
+GetTau_t	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::GetTau_t(void)$/;"	function	line:586
+GetTempFactor	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^float CXYPDBAtom::GetTempFactor()$/;"	function	line:259
+GetTree	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^tree< CXYVector<float> >* CXYEnsemble::GetTree()$/;"	function	line:254
+GetTree	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^tree< CXYVector<float> >* CXYSIS::GetTree()$/;"	function	line:278
+GetX	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^float CXYPDBAtom::GetX()$/;"	function	line:220
+GetY	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^float CXYPDBAtom::GetY()$/;"	function	line:230
+GetZ	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^float CXYPDBAtom::GetZ()$/;"	function	line:240
+GrowthChain	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYMatrix<float> CXYSIS::GrowthChain(tree< CXYVector<float> >::iterator &ritNode, $/;"	function	line:801
+GrowthChain_NoCon	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYMatrix<float> CXYSIS::GrowthChain_NoCon(tree< CXYVector<float> >::iterator &ritNode, $/;"	function	line:1424
+GrowthOneChain	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^bool CXYEnsemble::GrowthOneChain()$/;"	function	line:336
+GrowthOneChain	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^bool CXYSIS::GrowthOneChain()$/;"	function	line:360
+GuaranteeRotation	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::GuaranteeRotation ()$/;"	function	line:344
+INFINITYCHECK	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^#define INFINITYCHECK$/;"	macro	line:7
+IncrSortEigenStuffN	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::IncrSortEigenStuffN ()$/;"	function	line:374
+IncreasingSort	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::IncreasingSort ()$/;"	function	line:307
+Initialize	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::Initialize(void)$/;"	function	line:28
+InitializeChain	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::InitializeChain()$/;"	function	line:221
+InitializeChain	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::InitializeChain()$/;"	function	line:245
+InitializeChain_SISRoot	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::InitializeChain_SISRoot()$/;"	function	line:1345
+Integer64	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^	typedef __int64 Integer64;$/;"	typedef	line:13
+Integer64	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^	typedef int64_t Integer64;$/;"	typedef	line:16
+IsCollision	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^bool CXYEnsemble::IsCollision(CXYVector<float> kV_point)$/;"	function	line:312
+IsCollision	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^bool CXYSIS::IsCollision(CXYVector<float> kV_point)$/;"	function	line:336
+IsInsideSphere	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^bool CXYEnsemble::IsInsideSphere(CXYVector<float> kV_point)$/;"	function	line:283
+IsInsideSphere	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^bool CXYEnsemble::IsInsideSphere(float* fCoord)$/;"	function	line:297
+IsInsideSphere	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^bool CXYSIS::IsInsideSphere(CXYVector<float> kV_point)$/;"	function	line:307
+IsInsideSphere	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^bool CXYSIS::IsInsideSphere(float* fCoord)$/;"	function	line:321
+LapackEigenf	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^typedef CXYLapackEigen<float> LapackEigenf;$/;"	typedef	line:49
+Lapack_SSYEV	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^void CXYLapackEigen<Real>::Lapack_SSYEV()$/;"	function	line:98
+M	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	enum { M = 397 };  \/\/ period parameter$/;"	enumerator	line:79
+MAX_REAL	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^	template<> const double CXYMath<double>::MAX_REAL = LLONG_MAX;$/;"	member	line:17
+MAX_REAL	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^	template<> const double CXYMath<double>::MAX_REAL = _I64_MAX;$/;"	member	line:14
+MAX_REAL	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^	template<> const float CXYMath<float>::MAX_REAL = LONG_MAX;$/;"	member	line:13
+MAX_REAL	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^	template<> const float CXYMath<float>::MAX_REAL = LONG_MAX;$/;"	member	line:16
+MAX_REAL	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^	static const Real MAX_REAL;$/;"	member	line:39
+MERSENNETWISTER_H	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^#define MERSENNETWISTER_H$/;"	macro	line:59
+MTRand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^class MTRand {$/;"	class	line:70
+MTRand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::MTRand( const MTRand& o )$/;"	function	line:274
+MTRand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::MTRand( const uint32 oneSeed )$/;"	function	line:265
+MTRand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::MTRand( uint32 *const bigSeed, const uint32 seedLength )$/;"	function	line:268
+MTRand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::MTRand()$/;"	function	line:271
+MakeDirectory	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^int CXYFile::MakeDirectory(char* sPath, int imode)$/;"	function	line:436
+N	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	enum { N = 624 };       \/\/ length of state vector$/;"	enumerator	line:75
+NANCHECK	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^#define NANCHECK$/;"	macro	line:8
+PI	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^template<> const float CXYMath<float>::PI = 3.1415926;$/;"	member	line:10
+PI	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^	static const Real PI; \/\/ pi$/;"	member	line:37
+PostDealPDB	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^void CXYPDB::PostDealPDB(char* sLevel)$/;"	function	line:97
+QLAlgorithm	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^bool CXYEigen<Real>::QLAlgorithm ()$/;"	function	line:189
+Quaternion	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^typedef struct Quaternion {$/;"	struct	line:48
+Quaternion	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^} Quaternion;$/;"	typedef	line:53
+RANDOM_MAX	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.h	/^const int RANDOM_MAX = 32767;$/;"	variable	line:16
+RandPerm	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^vector<int> CXYUtility::RandPerm( vector<int>& kV )$/;"	function	line:103
+ReadAtomsFromPDB	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYPDB CXYFile::ReadAtomsFromPDB(const char* acfname)$/;"	function	line:399
+ReadCSV	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::ReadCSV(istream& in, vector<vector<string>*>& data) {$/;"	function	line:135
+ReadLine	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::ReadLine(const char *acBuffLine)$/;"	function	line:316
+ReadMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYMatrixf CXYFile::ReadMatrix(const char* acfname)$/;"	function	line:16
+ReadMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYMatrixf CXYFile::ReadMatrix(const char* acfname, int iNumRowSkip, int iNumColSkip)$/;"	function	line:456
+ReadSparseMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYMatrixf CXYFile::ReadSparseMatrix(const char* acfname)$/;"	function	line:524
+ReadVector	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYVector<float> CXYFile::ReadVector(const char* acfname)$/;"	function	line:48
+ReadVectorInt	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYVector<int> CXYFile::ReadVectorInt(const char* acfname)$/;"	function	line:76
+ReduceToSCOfCA	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^void CXYPDB::ReduceToSCOfCA(void)$/;"	function	line:24
+RndSetStartPoint	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^CXYVector<float> CXYEnsemble::RndSetStartPoint(void)$/;"	function	line:259
+RndSetStartPoint	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYVector<float> CXYSIS::RndSetStartPoint(void)$/;"	function	line:283
+SAVE	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	enum { SAVE = N + 1 };  \/\/ length of array for save()$/;"	enumerator	line:76
+SIGNCHECK	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^#define SIGNCHECK$/;"	macro	line:9
+SIS_Algorithm	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SIS_Algorithm(void)$/;"	function	line:601
+SetAjust	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetAjust(float fAjust)$/;"	function	line:591
+SetAltLoc	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetAltLoc(char *acAltLoc)$/;"	function	line:167
+SetAtomicSym	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetAtomicSym(char *acAtomicSym)$/;"	function	line:131
+SetBranchDes	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetBranchDes(char *acBranchDes)$/;"	function	line:155
+SetChainID	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetChainID(char *acChainID)$/;"	function	line:191
+SetCharge	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetCharge(char *acCharge)$/;"	function	line:296
+SetCollisionLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetCollisionLength(float fCollision)$/;"	function	line:67
+SetCollisionLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetCollisionLength(float fCollision)$/;"	function	line:91
+SetContIndex	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetContIndex(char* cContIndFile){$/;"	function	line:560
+SetDistFileName	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetDistFileName(char* cFileName)$/;"	function	line:734
+SetDistMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetDistMatrix(void)$/;"	function	line:744
+SetElement	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetElement(char *acElement)$/;"	function	line:284
+SetICode	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetICode(char *acICode)$/;"	function	line:212
+SetLwork	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^void CXYLapackEigen<Real>::SetLwork()$/;"	function	line:79
+SetMmax	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetMmax(int iMmax)$/;"	function	line:551
+SetName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetName(char *acAtom)$/;"	function	line:119
+SetNucleusSphereDiameter	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetNucleusSphereDiameter(float fNucleusSphereDiameter)$/;"	function	line:89
+SetNucleusSphereDiameter	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetNucleusSphereDiameter(float fNucleusSphereDiameter)$/;"	function	line:113
+SetNumNodes	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetNumNodes(int iNumNodes){$/;"	function	line:99
+SetNumNodes	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetNumNodes(int iNumNodes){$/;"	function	line:123
+SetOccupancy	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetOccupancy(float fOccupancy)$/;"	function	line:254
+SetOutPath	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetOutPath(char* cPathName)$/;"	function	line:496
+SetOutPath	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetOutPath(char* cPathName)$/;"	function	line:482
+SetPackingDensity	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetPackingDensity(float fPackingDensity)$/;"	function	line:79
+SetPackingDensity	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetPackingDensity(float fPackingDensity)$/;"	function	line:103
+SetPersistenceLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetPersistenceLength(float fPL)$/;"	function	line:57
+SetPersistenceLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetPersistenceLength(float fPL)$/;"	function	line:81
+SetPoint	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetPoint(const CXYPoint3Df& rP)$/;"	function	line:308
+SetRecName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetRecName(char *acRecName)$/;"	function	line:98
+SetRemoteInd	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetRemoteInd(char *acRemoteInd)$/;"	function	line:143
+SetResName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetResName(char *acResName)$/;"	function	line:179
+SetResSeq	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetResSeq(int iResSeq)$/;"	function	line:203
+SetRho_1	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetRho_1(float fRho_1)$/;"	function	line:561
+SetRho_2	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetRho_2(float fRho_2)$/;"	function	line:571
+SetSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^int CXYSO3Sequence::SetSO3Sequence(){$/;"	function	line:365
+SetSamplesOrg	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetSamplesOrg(void)$/;"	function	line:109
+SetSamplesOrg	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetSamplesOrg(void)$/;"	function	line:133
+SetSegID	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetSegID(char *acSegID)$/;"	function	line:272
+SetSegLengths	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetSegLengths(char* cStartEndFile,const char* cMethod){$/;"	function	line:516
+SetSegLengths	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::SetSegLengths(void){$/;"	function	line:554
+SetSegLengths	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetSegLengths(char* cStartEndFile,const char* cMethod){$/;"	function	line:503
+SetSegLengths	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetSegLengths(void){$/;"	function	line:543
+SetSequenceBase	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^void	CXYSO3Sequence:: SetSequenceBase(){$/;"	function	line:329
+SetSerial	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetSerial(int iSerial)$/;"	function	line:110
+SetTau_t	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::SetTau_t(float fTau_t)$/;"	function	line:581
+SetTempFactor	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetTempFactor(float fTempFactor)$/;"	function	line:263
+SetX	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetX(float fX)$/;"	function	line:224
+SetY	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetY(float fY)$/;"	function	line:234
+SetZ	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^void CXYPDBAtom::SetZ(float fZ)$/;"	function	line:244
+Size	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^int CXYPDB::Size() const$/;"	function	line:19
+SquareLength	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^float CXYUtility::SquareLength(CXYPoint3D<float> P1,CXYPoint3D<float> P2)$/;"	function	line:53
+T_as_string	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^string ConfigFile::T_as_string( const T& t )$/;"	function	line:121
+TridiagonalN	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^void CXYEigen<Real>::TridiagonalN ()$/;"	function	line:76
+TrimChar	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^char *CXYUtility::TrimChar(char *pszSource)$/;"	function	line:60
+WriteAtomsToPDB	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteAtomsToPDB( const char* acfname, const char* _mode, vector<CXYPDB>& rkvPDBs )$/;"	function	line:284
+WriteAtomsToPDB	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteAtomsToPDB(const char* acfname, const char* _mode, CXYPDB& rkP)$/;"	function	line:244
+WriteChain	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::WriteChain(char* fn)$/;"	function	line:399
+WriteChain	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::WriteChain(char* fn)$/;"	function	line:420
+WriteComment	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteComment(const char* acfname, const char* _mode, const char* acComment)$/;"	function	line:376
+WriteDistance	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^void CXYEnsemble::WriteDistance(char* fn)$/;"	function	line:424
+WriteDistance	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::WriteDistance(char* fn)$/;"	function	line:445
+WriteMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteMatrix(const char* acfname, const char* _mode, const CXYMatrixf& rkM)$/;"	function	line:104
+WritePDB	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::WritePDB(char* cFN, CXYMatrix<float>& kM, int iInd)$/;"	function	line:1173
+WritePDBArr	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::WritePDBArr(void)$/;"	function	line:1273
+WritePtsArr	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^void CXYSIS::WritePtsArr(void)$/;"	function	line:1362
+WriteSparseMatrix	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteSparseMatrix(const char* acfname, const char* _mode, const CXYMatrixf& rkM)$/;"	function	line:557
+WriteVector	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteVector(const char* acfname, const char* _mode, const CXYVector<CXYPoint3D<float> >& rkV)$/;"	function	line:386
+WriteVector	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^void CXYFile::WriteVector(const char* acfname, const char* _mode, const CXYVectorf& rkV)$/;"	function	line:122
+XYEIGEN_H	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^#define XYEIGEN_H$/;"	macro	line:2
+XYENSEMBLE_H	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^#define XYENSEMBLE_H$/;"	macro	line:8
+XYENSEMBLE_H	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^#define XYENSEMBLE_H$/;"	macro	line:8
+XYFILE_H	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^#define XYFILE_H$/;"	macro	line:2
+XYLAPACK_H	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^#define XYLAPACK_H$/;"	macro	line:2
+XYMATH_H	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^#define XYMATH_H$/;"	macro	line:2
+XYMATRIX_H	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^#define XYMATRIX_H$/;"	macro	line:2
+XYPDBATOM_H	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^#define XYPDBATOM_H$/;"	macro	line:2
+XYPDB_H	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.h	/^#define	XYPDB_H$/;"	macro	line:2
+XYPOINT3D_H	/Users/yunxu/workspace/projects/chromatin/include/XYPoint3D.h	/^#define XYPOINT3D_H$/;"	macro	line:2
+XYSO3SEQUENCE_H	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^#define XYSO3SEQUENCE_H$/;"	macro	line:38
+XYUTILITY_H	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.h	/^#define	XYUTILITY_H$/;"	macro	line:2
+XYVECTOR_H	/Users/yunxu/workspace/projects/chromatin/include/XYVector.h	/^#define XYVECTOR_H$/;"	macro	line:2
+ZERO_TOLERANCE	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^template<> const double CXYMath<double>::ZERO_TOLERANCE = 1e-08;$/;"	member	line:7
+ZERO_TOLERANCE	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^template<> const float CXYMath<float>::ZERO_TOLERANCE = 1e-06f;$/;"	member	line:6
+ZERO_TOLERANCE	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^	static const Real ZERO_TOLERANCE;$/;"	member	line:38
+add	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^void ConfigFile::add( string key, const T& value )$/;"	function	line:224
+alloc_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		tree_node_allocator alloc_;$/;"	member	line:412
+ang2vec	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^void CXYSO3Sequence::ang2vec(double theta, double phi, double *vec) {$/;"	function	line:346
+append_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::append_child(iter position)$/;"	function	line:827
+append_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::append_child(iter position, const T& x)$/;"	function	line:877
+append_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::append_child(iter position, iter other)$/;"	function	line:931
+append_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::append_children(iter position, sibling_iterator from, sibling_iterator to)$/;"	function	line:953
+begin	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator tree<T, tree_node_allocator>::begin() const$/;"	function	line:613
+begin	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::begin(const iterator_base& pos) const$/;"	function	line:703
+begin	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::iterator_base::begin() const$/;"	function	line:1963
+begin_	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   int begin_;$/;"	member	line:110
+begin_breadth_first	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::breadth_first_queued_iterator tree<T, tree_node_allocator>::begin_breadth_first() const$/;"	function	line:625
+begin_fixed	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator tree<T, tree_node_allocator>::begin_fixed(const iterator_base& pos, unsigned int dp) const$/;"	function	line:654
+begin_leaf	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator tree<T, tree_node_allocator>::begin_leaf() const$/;"	function	line:721
+begin_leaf	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator tree<T, tree_node_allocator>::begin_leaf(const iterator_base& top) const$/;"	function	line:738
+begin_post	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator tree<T, tree_node_allocator>::begin_post() const$/;"	function	line:637
+breadth_first_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		typedef breadth_first_queued_iterator breadth_first_iterator;$/;"	typedef	line:183
+breadth_first_queued_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class breadth_first_queued_iterator : public iterator_base {$/;"	class	line:165
+breadth_first_queued_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::breadth_first_queued_iterator::breadth_first_queued_iterator()$/;"	function	line:2237
+breadth_first_queued_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::breadth_first_queued_iterator::breadth_first_queued_iterator(const iterator_base& other)$/;"	function	line:2250
+breadth_first_queued_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::breadth_first_queued_iterator::breadth_first_queued_iterator(tree_node *tn)$/;"	function	line:2243
+child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::child(const iterator_base& it, unsigned int num) $/;"	function	line:1867
+clear	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::clear()$/;"	function	line:556
+comp_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				StrictWeakOrdering comp_;$/;"	member	line:427
+compare_nodes	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				compare_nodes(StrictWeakOrdering comp) : comp_(comp) {};$/;"	function	line:420
+compare_nodes	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class compare_nodes {$/;"	class	line:418
+constructor	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void constructor(T1* p) $/;"	function	line:47
+constructor	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void constructor(T1* p, T2& val) $/;"	function	line:41
+copy_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::copy_(const tree<T, tree_node_allocator>& other) $/;"	function	line:535
+countTokens	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   size_t countTokens( ) {$/;"	function	line:71
+count_	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   int count_;$/;"	member	line:109
+data	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		T data;$/;"	member	line:67
+delim_	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   string delim_;$/;"	member	line:107
+depth	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^int tree<T, tree_node_allocator>::depth(const iterator_base& it) $/;"	function	line:1632
+depth	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^int tree<T, tree_node_allocator>::depth(const iterator_base& it, const iterator_base& root) $/;"	function	line:1645
+descend_all	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::post_order_iterator::descend_all()$/;"	function	line:2226
+destructor	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void destructor(T1* p)$/;"	function	line:53
+difference_type	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				typedef ptrdiff_t                       difference_type;$/;"	typedef	line:102
+empty	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::empty() const$/;"	function	line:1625
+end	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator tree<T, tree_node_allocator>::end() const$/;"	function	line:619
+end	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::end(const iterator_base& pos) const$/;"	function	line:713
+end	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::iterator_base::end() const$/;"	function	line:1974
+end_	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   int end_;$/;"	member	line:111
+end_breadth_first	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::breadth_first_queued_iterator tree<T, tree_node_allocator>::end_breadth_first() const$/;"	function	line:631
+end_fixed	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator tree<T, tree_node_allocator>::end_fixed(const iterator_base& pos, unsigned int dp) const$/;"	function	line:685
+end_leaf	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator tree<T, tree_node_allocator>::end_leaf() const$/;"	function	line:732
+end_leaf	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator tree<T, tree_node_allocator>::end_leaf(const iterator_base& top) const$/;"	function	line:747
+end_post	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator tree<T, tree_node_allocator>::end_post() const$/;"	function	line:648
+equal	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::equal(const iter& one_, const iter& two, const iter& three_) const$/;"	function	line:1538
+equal	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::equal(const iter& one_, const iter& two, const iter& three_, BinaryPredicate fun) const$/;"	function	line:1554
+equal_subtree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::equal_subtree(const iter& one_, const iter& two_) const$/;"	function	line:1546
+equal_subtree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::equal_subtree(const iter& one_, const iter& two_, BinaryPredicate fun) const$/;"	function	line:1573
+erase	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::erase(iter it)$/;"	function	line:586
+erase_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::erase_children(const iterator_base& it)$/;"	function	line:564
+feet	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		tree_node *head, *feet;    \/\/ head\/feet are always dummy; if an iterator points to them it is invalid$/;"	member	line:410
+file_not_found	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^		file_not_found( const string& filename_ = string() )$/;"	function	line:110
+file_not_found	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	struct file_not_found {$/;"	struct	line:108
+filename	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^		string filename;$/;"	member	line:109
+find_point	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^vector<double> CXYSO3Sequence::find_point(int base_grid, long int point,long int level,long int healpix_point)$/;"	function	line:227
+first	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	T1 first;$/;"	member	line:39
+first_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^	   tree_node_<T> *first_child, *last_child;$/;"	member	line:65
+fixed_depth_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class fixed_depth_iterator : public iterator_base {$/;"	class	line:186
+fixed_depth_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::fixed_depth_iterator::fixed_depth_iterator()$/;"	function	line:2312
+fixed_depth_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::fixed_depth_iterator::fixed_depth_iterator(const fixed_depth_iterator& other)$/;"	function	line:2336
+fixed_depth_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::fixed_depth_iterator::fixed_depth_iterator(const iterator_base& other)$/;"	function	line:2324
+fixed_depth_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::fixed_depth_iterator::fixed_depth_iterator(const sibling_iterator& other)$/;"	function	line:2330
+fixed_depth_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::fixed_depth_iterator::fixed_depth_iterator(tree_node *tn)$/;"	function	line:2318
+flatten	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::flatten(iter position)$/;"	function	line:1221
+getComment	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string getComment() const { return myComment; }$/;"	function	line:89
+getDelimiter	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string getDelimiter() const { return myDelimiter; }$/;"	function	line:88
+getSentry	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string getSentry() const { return mySentry; }$/;"	function	line:90
+h1Function	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::h1Function(CXYMatrix<float>& kM)$/;"	function	line:940
+h2Function	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^float CXYSIS::h2Function(CXYMatrix<float>& kM)$/;"	function	line:965
+hasMoreTokens	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   bool hasMoreTokens( ) {return(begin_ != end_);}$/;"	function	line:90
+hash	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::uint32 MTRand::hash( time_t t, clock_t c )$/;"	function	line:142
+head	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		tree_node *head, *feet;    \/\/ head\/feet are always dummy; if an iterator points to them it is invalid$/;"	member	line:410
+head_initialise_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::head_initialise_() $/;"	function	line:503
+hiBit	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 hiBit( const uint32 u ) const { return u & 0x80000000UL; }$/;"	function	line:128
+index	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^unsigned int tree<T, tree_node_allocator>::index(sibling_iterator it) const$/;"	function	line:1825
+initialize	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::initialize( const uint32 seed )$/;"	function	line:167
+insert	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::insert(iter position, const T& x)$/;"	function	line:992
+insert	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::insert(sibling_iterator position, const T& x)$/;"	function	line:1018
+insert_after	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::insert_after(iter position, const T& x)$/;"	function	line:1048
+insert_subtree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::insert_subtree(iter position, const iterator_base& subtree)$/;"	function	line:1072
+insert_subtree_after	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::insert_subtree_after(iter position, const iterator_base& subtree)$/;"	function	line:1082
+isSpaces	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.h	/^#define isSpaces(/;"	macro	line:10
+is_in_subtree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::is_in_subtree(const iterator_base& it, const iterator_base& begin, $/;"	function	line:1805
+is_valid	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::is_valid(const iterator_base& it) const$/;"	function	line:1818
+iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		typedef pre_order_iterator            iterator;$/;"	typedef	line:182
+iterator_base	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class iterator_base : public stlport::bidirectional_iterator<T, ptrdiff_t> {$/;"	class	line:93
+iterator_base	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::iterator_base::iterator_base()$/;"	function	line:1883
+iterator_base	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::iterator_base::iterator_base(tree_node *tn)$/;"	function	line:1889
+iterator_base_less	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class iterator_base_less {$/;"	class	line:402
+iterator_category	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				typedef std::bidirectional_iterator_tag iterator_category;$/;"	typedef	line:103
+k_B	/Users/yunxu/workspace/projects/chromatin/include/XYMath.cpp	/^template<> const float CXYMath<float>::k_B = 1.3806505e-23;$/;"	member	line:9
+k_B	/Users/yunxu/workspace/projects/chromatin/include/XYMath.h	/^	static const Real k_B; \/\/ Boltzmann constant$/;"	member	line:36
+key	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^		string key;$/;"	member	line:113
+keyExists	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^bool ConfigFile::keyExists( const string& key ) const$/;"	function	line:36
+key_not_found	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^		key_not_found( const string& key_ = string() )$/;"	function	line:114
+key_not_found	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	struct key_not_found {  \/\/ thrown only by T read(key) variant of read()$/;"	struct	line:112
+kp	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^namespace kp {$/;"	namespace	line:38
+kptree	/Users/yunxu/workspace/projects/chromatin/include/tree_util.hh	/^namespace kptree {$/;"	namespace	line:33
+last_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^	   tree_node_<T> *first_child, *last_child;$/;"	member	line:65
+leaf_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^      class leaf_iterator : public iterator_base {$/;"	class	line:231
+leaf_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::leaf_iterator::leaf_iterator() $/;"	function	line:2603
+leaf_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::leaf_iterator::leaf_iterator(const iterator_base &other)$/;"	function	line:2615
+leaf_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::leaf_iterator::leaf_iterator(const sibling_iterator& other)$/;"	function	line:2621
+leaf_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::leaf_iterator::leaf_iterator(tree_node *tn, tree_node *top)$/;"	function	line:2609
+left	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	int left;          \/\/ number of values left before reload needed$/;"	member	line:83
+loBit	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 loBit( const uint32 u ) const { return u & 0x00000001UL; }$/;"	function	line:129
+loBits	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 loBits( const uint32 u ) const { return u & 0x7fffffffUL; }$/;"	function	line:130
+load	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::load( uint32 *const loadArray )$/;"	function	line:373
+m_a	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	Real* m_a;$/;"	member	line:41
+m_aafEntry	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^    Real** m_aafEntry;$/;"	member	line:100
+m_acAltLoc	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acAltLoc[2];	\/\/ 17           Character        altLoc     Alternate location indicator.$/;"	member	line:168
+m_acAtom	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acAtom[5];		\/\/ 13 - 16      Atom             name       Atom name.$/;"	member	line:161
+m_acAtomicSym	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acAtomicSym[3];	\/\/ 13-14  $/;"	member	line:164
+m_acBranchDes	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acBranchDes[2]; \/\/ 16$/;"	member	line:166
+m_acChainID	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acChainID[2];	\/\/ 22           Character        chainID    Chain identifier.$/;"	member	line:170
+m_acCharge	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acCharge[3];	\/\/ 79 - 80      LString(2)       charge     Charge on the atom.$/;"	member	line:184
+m_acElement	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acElement[3];	\/\/ 77 - 78      LString(2)       element    Element symbol, right-justified.$/;"	member	line:183
+m_acICode	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acICode[2];		\/\/ 27           AChar            iCode      Code for insertion of residues.$/;"	member	line:172
+m_acRecName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acRecName[7];	\/\/ 1 -  6      Record name      "ATOM    "$/;"	member	line:158
+m_acRemoteInd	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acRemoteInd[2]; \/\/ 15$/;"	member	line:165
+m_acResName	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acResName[4];	\/\/ 18 - 20      Residue name     resName    Residue name.$/;"	member	line:169
+m_acSegID	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	char	m_acSegID[5];	\/\/ 73 - 76		LString(4)		segment identifier, left-justified. [format version 2.0 and later.]$/;"	member	line:181
+m_afData	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^    Real* m_afData;$/;"	member	line:95
+m_afDiag	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^    Real* m_afDiag;$/;"	member	line:35
+m_afSubd	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^    Real* m_afSubd;$/;"	member	line:36
+m_afTuple	/Users/yunxu/workspace/projects/chromatin/include/XYVector.h	/^    Real* m_afTuple;$/;"	member	line:63
+m_bIsRotation	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^    bool m_bIsRotation;$/;"	member	line:51
+m_cDistFileName	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	char* m_cDistFileName;$/;"	member	line:200
+m_cOutPath	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	char* m_cOutPath;$/;"	member	line:123
+m_cOutPath	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	char* m_cOutPath;$/;"	member	line:183
+m_fAdjust	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fAdjust; \/\/ adjust gamma matrix$/;"	member	line:199
+m_fBendingAngleBeg	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fBendingAngleBeg; \/\/ binding angle begin$/;"	member	line:124
+m_fBendingAngleEnd	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fBendingAngleEnd; \/\/ binding angle end$/;"	member	line:125
+m_fCollisionLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fCollisionLength;   \/\/ collision length$/;"	member	line:131
+m_fCollisionLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fCollisionLength;   \/\/ collision length$/;"	member	line:185
+m_fNucleusSphereDiameter	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fNucleusSphereDiameter; $/;"	member	line:133
+m_fNucleusSphereDiameter	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fNucleusSphereDiameter; $/;"	member	line:187
+m_fOccupancy	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	float	m_fOccupancy;	\/\/ 55 - 60      Real(6.2)        occupancy  Occupancy.$/;"	member	line:178
+m_fPackingDensity	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fPackingDensity;   \/\/ packing density$/;"	member	line:132
+m_fPackingDensity	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fPackingDensity;   \/\/ packing density$/;"	member	line:186
+m_fPersistenceLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fPersistenceLength; \/\/ persistence length$/;"	member	line:130
+m_fPersistenceLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fPersistenceLength; \/\/ persistence length$/;"	member	line:184
+m_fRho_1	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fRho_1, m_fRho_2, m_fTau_t; \/\/ function parameter$/;"	member	line:198
+m_fRho_2	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fRho_1, m_fRho_2, m_fTau_t; \/\/ function parameter$/;"	member	line:198
+m_fTau_t	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	float m_fRho_1, m_fRho_2, m_fTau_t; \/\/ function parameter$/;"	member	line:198
+m_fTempFactor	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	float	m_fTempFactor;	\/\/ 61 - 66      Real(6.2)        tempFactor Temperature factor.$/;"	member	line:179
+m_fTorsionAngleBeg	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fTorsionAngleBeg;	\/\/ torsion angle begin$/;"	member	line:126
+m_fTorsionAngleEnd	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	float m_fTorsionAngleEnd;	\/\/ torsion angle end$/;"	member	line:127
+m_fX	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	float	m_fX;			\/\/ 31 - 38      Real(8.3)        x          Orthogonal coordinates for X in Angstroms$/;"	member	line:174
+m_fY	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	float	m_fY;			\/\/ 39 - 46      Real(8.3)        y          Orthogonal coordinates for Y in Angstroms$/;"	member	line:175
+m_fZ	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	float	m_fZ;			\/\/ 47 - 54      Real(8.3)        z          Orthogonal coordinates for Z in Angstroms$/;"	member	line:176
+m_iCols	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^	int m_iRows, m_iCols, m_iQuantity;$/;"	member	line:92
+m_iMmax	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	int m_iMmax; \/\/ number of samples selected$/;"	member	line:197
+m_iNumBendingAngle	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	int   m_iNumBendingAngle; 	\/\/ number of binding angle$/;"	member	line:128
+m_iNumNodes	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	int   m_iNumNodes;$/;"	member	line:134
+m_iNumNodes	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	int   m_iNumNodes;$/;"	member	line:188
+m_iNumPoints	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	int m_iNumPoints;$/;"	member	line:81
+m_iNumSamplePoints	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	int   m_iNumSamplePoints;$/;"	member	line:135
+m_iNumSamplePoints	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	int   m_iNumSamplePoints;$/;"	member	line:189
+m_iNumTorsionAngle	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	int   m_iNumTorsionAngle; 	\/\/ number of torsion angle$/;"	member	line:129
+m_iQuantity	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^	int m_iRows, m_iCols, m_iQuantity;$/;"	member	line:92
+m_iResSeq	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	int		m_iResSeq;		\/\/ 23 - 26      Integer          resSeq     Residue sequence number.$/;"	member	line:171
+m_iRows	/Users/yunxu/workspace/projects/chromatin/include/XYMatrix.h	/^	int m_iRows, m_iCols, m_iQuantity;$/;"	member	line:92
+m_iSerial	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	int		m_iSerial;		\/\/ 7 - 11      Integer          serial     Atom serial number.$/;"	member	line:159
+m_iSize	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^    int m_iSize;$/;"	member	line:33
+m_iSize	/Users/yunxu/workspace/projects/chromatin/include/XYVector.h	/^	int m_iSize;$/;"	member	line:62
+m_info	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	int m_info;$/;"	member	line:46
+m_jobz	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	char* m_jobz;$/;"	member	line:38
+m_kMat	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.h	/^    CXYMatrix<Real> m_kMat;$/;"	member	line:34
+m_kMat	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	CXYMatrix<Real> m_kMat;$/;"	member	line:37
+m_kPDBAtoms	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.h	/^	vector<CXYPDBAtom> m_kPDBAtoms;$/;"	member	line:36
+m_lda	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	int m_lda;$/;"	member	line:42
+m_listConNodeInd	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	list<int> m_listConNodeInd;$/;"	member	line:205
+m_lwork	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	int m_lwork;$/;"	member	line:45
+m_n	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	int m_n;$/;"	member	line:40
+m_pMDist	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	CXYMatrix<float>* m_pMDist;$/;"	member	line:201
+m_pMSamplesOrg	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	CXYMatrix<float>* m_pMSamplesOrg;$/;"	member	line:136
+m_pMSamplesOrg	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	CXYMatrix<float>* m_pMSamplesOrg;$/;"	member	line:190
+m_pMSpherepoints	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	CXYMatrix<float> *m_pMSpherepoints;$/;"	member	line:84
+m_pTChain	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	tree< CXYVector<float> >* m_pTChain; \/\/ tree stored coordinates$/;"	member	line:138
+m_pTChain	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	tree< CXYVector<float> >* m_pTChain; \/\/ tree stored coordinates$/;"	member	line:192
+m_pVEColl	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	CXYVector<float>* m_pVEColl;$/;"	member	line:203
+m_pVErr	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	CXYVector<float>* m_pVErr;$/;"	member	line:202
+m_point	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.h	/^	CXYPoint3Df m_point;$/;"	member	line:185
+m_uplo	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	char* m_uplo;$/;"	member	line:39
+m_vContInd	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	vector<int> m_vContInd; \/\/ vector of contact index$/;"	member	line:141
+m_vPoints	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	vector< vector<double > > m_vPoints;$/;"	member	line:83
+m_vSequence_base	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	vector < int > m_vSequence_base;$/;"	member	line:82
+m_vfSegLength	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.h	/^	vector<float> m_vfSegLength; \/\/ vector of segment length (may different)$/;"	member	line:140
+m_vfSegLength	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	vector<float> m_vfSegLength; \/\/ vector of segment length (may different)$/;"	member	line:194
+m_vtriple	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	vector<triple<int,int,float> > m_vtriple;$/;"	member	line:204
+m_w	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	Real* m_w;$/;"	member	line:43
+m_work	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.h	/^	Real* m_work;$/;"	member	line:44
+magic	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 magic( const uint32 u ) const$/;"	function	line:133
+main	/Users/yunxu/workspace/projects/chromatin/include/MTexample.cpp	/^int main( int argc, char * const argv[] )$/;"	function	line:12
+mapci	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	typedef std::map<string,string>::const_iterator mapci;$/;"	typedef	line:63
+mapi	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	typedef std::map<string,string>::iterator mapi;$/;"	typedef	line:62
+max_depth	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^int tree<T, tree_node_allocator>::max_depth() const$/;"	function	line:1658
+max_depth	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^int tree<T, tree_node_allocator>::max_depth(const iterator_base& pos) const$/;"	function	line:1669
+merge	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::merge(sibling_iterator to1,   sibling_iterator to2,$/;"	function	line:1446
+mixBits	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 mixBits( const uint32 u, const uint32 v ) const$/;"	function	line:131
+mk_pix2xy	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^void CXYSO3Sequence::mk_pix2xy(int *pix2x, int *pix2y){$/;"	function	line:186
+move_after	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^template <typename iter> iter tree<T, tree_node_allocator>::move_after(iter target, iter source)$/;"	function	line:1315
+move_before	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^template <typename iter> iter tree<T, tree_node_allocator>::move_before(iter target, iter source)$/;"	function	line:1344
+move_before	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::move_before(sibling_iterator target, $/;"	function	line:1374
+move_ontop	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^template <typename iter> iter tree<T, tree_node_allocator>::move_ontop(iter target, iter source)$/;"	function	line:1411
+myComment	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string myComment;    \/\/ separator between value and comments$/;"	member	line:58
+myContents	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	std::map<string,string> myContents;  \/\/ extracted keys and values$/;"	member	line:60
+myDelimiter	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string myDelimiter;  \/\/ separator between key and value$/;"	member	line:57
+mySentry	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string mySentry;     \/\/ optional string to signal end of file$/;"	member	line:59
+nextToken	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   void nextToken(string& s) {$/;"	function	line:91
+next_at_same_depth	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::next_at_same_depth(iter position) const$/;"	function	line:782
+next_sibling	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		tree_node_<T> *prev_sibling, *next_sibling;$/;"	member	line:66
+next_sibling	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::next_sibling(iter position) const$/;"	function	line:772
+node	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				tree_node *node;$/;"	member	line:120
+number_of_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^unsigned int tree<T, tree_node_allocator>::iterator_base::number_of_children() const$/;"	function	line:1994
+number_of_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^unsigned int tree<T, tree_node_allocator>::number_of_children(const iterator_base& it) $/;"	function	line:1697
+number_of_siblings	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^unsigned int tree<T, tree_node_allocator>::number_of_siblings(const iterator_base& it) const$/;"	function	line:1713
+operator !=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::breadth_first_queued_iterator::operator!=(const breadth_first_queued_iterator& other) const$/;"	function	line:2257
+operator !=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::fixed_depth_iterator::operator!=(const fixed_depth_iterator& other) const$/;"	function	line:2349
+operator !=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::leaf_iterator::operator!=(const leaf_iterator& other) const$/;"	function	line:1949
+operator !=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::post_order_iterator::operator!=(const post_order_iterator& other) const$/;"	function	line:1907
+operator !=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::pre_order_iterator::operator!=(const pre_order_iterator& other) const$/;"	function	line:1921
+operator !=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::sibling_iterator::operator!=(const sibling_iterator& other) const$/;"	function	line:1935
+operator ()	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::operator()()$/;"	function	line:359
+operator ()	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^Real& CXYEigen<Real>::operator() (int iRow, int iCol)$/;"	function	line:39
+operator ()	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^Real& CXYLapackEigen<Real>::operator() (int iRow, int iCol)$/;"	function	line:65
+operator ()	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	bool operator()(const pair<T1,T2>&left, const pair<T1,T2>&right) {$/;"	function	line:24
+operator ()	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				bool operator()(const tree_node *a, const tree_node *b) $/;"	function	line:422
+operator ()	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				bool operator()(const typename tree<T, tree_node_allocator>::iterator_base& one,$/;"	function	line:404
+operator *	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^T& tree<T, tree_node_allocator>::iterator_base::operator*() const$/;"	function	line:1895
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::breadth_first_queued_iterator tree<T, tree_node_allocator>::breadth_first_queued_iterator::operator++(int)$/;"	function	line:2290
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::breadth_first_queued_iterator& tree<T, tree_node_allocator>::breadth_first_queued_iterator::operator++()$/;"	function	line:2271
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator tree<T, tree_node_allocator>::fixed_depth_iterator::operator++(int)$/;"	function	line:2458
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator& tree<T, tree_node_allocator>::fixed_depth_iterator::operator++()$/;"	function	line:2356
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator tree<T, tree_node_allocator>::leaf_iterator::operator++(int)$/;"	function	line:2670
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator& tree<T, tree_node_allocator>::leaf_iterator::operator++()$/;"	function	line:2634
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator tree<T, tree_node_allocator>::post_order_iterator::operator++(int)$/;"	function	line:2189
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator& tree<T, tree_node_allocator>::post_order_iterator::operator++()$/;"	function	line:2152
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator tree<T, tree_node_allocator>::pre_order_iterator::operator++(int)$/;"	function	line:2080
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator& tree<T, tree_node_allocator>::pre_order_iterator::operator++()$/;"	function	line:2044
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::sibling_iterator::operator++(int)$/;"	function	line:2552
+operator ++	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator& tree<T, tree_node_allocator>::sibling_iterator::operator++()$/;"	function	line:2533
+operator +=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::breadth_first_queued_iterator& tree<T, tree_node_allocator>::breadth_first_queued_iterator::operator+=(unsigned int num)$/;"	function	line:2298
+operator +=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator& tree<T, tree_node_allocator>::fixed_depth_iterator::operator+=(unsigned int num)$/;"	function	line:2484
+operator +=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator& tree<T, tree_node_allocator>::leaf_iterator::operator+=(unsigned int num)$/;"	function	line:2687
+operator +=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator& tree<T, tree_node_allocator>::post_order_iterator::operator+=(unsigned int num)$/;"	function	line:2206
+operator +=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator& tree<T, tree_node_allocator>::pre_order_iterator::operator+=(unsigned int num)$/;"	function	line:2096
+operator +=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator& tree<T, tree_node_allocator>::sibling_iterator::operator+=(unsigned int num)$/;"	function	line:2568
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator tree<T, tree_node_allocator>::fixed_depth_iterator::operator--(int)$/;"	function	line:2466
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator& tree<T, tree_node_allocator>::fixed_depth_iterator::operator--()$/;"	function	line:2396
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator tree<T, tree_node_allocator>::leaf_iterator::operator--(int)$/;"	function	line:2678
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator& tree<T, tree_node_allocator>::leaf_iterator::operator--()$/;"	function	line:2655
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator tree<T, tree_node_allocator>::post_order_iterator::operator--(int)$/;"	function	line:2197
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator& tree<T, tree_node_allocator>::post_order_iterator::operator--()$/;"	function	line:2173
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator tree<T, tree_node_allocator>::pre_order_iterator::operator--(int)$/;"	function	line:2088
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator& tree<T, tree_node_allocator>::pre_order_iterator::operator--()$/;"	function	line:2063
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::sibling_iterator::operator--(int)$/;"	function	line:2560
+operator --	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator& tree<T, tree_node_allocator>::sibling_iterator::operator--()$/;"	function	line:2541
+operator -=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::fixed_depth_iterator& tree<T, tree_node_allocator>::fixed_depth_iterator::operator-=(unsigned int num)$/;"	function	line:2474
+operator -=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::leaf_iterator& tree<T, tree_node_allocator>::leaf_iterator::operator-=(unsigned int num)$/;"	function	line:2697
+operator -=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::post_order_iterator& tree<T, tree_node_allocator>::post_order_iterator::operator-=(unsigned int num)$/;"	function	line:2216
+operator -=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator& tree<T, tree_node_allocator>::pre_order_iterator::operator-=(unsigned int num)$/;"	function	line:2106
+operator -=	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator& tree<T, tree_node_allocator>::sibling_iterator::operator-=(unsigned int num)$/;"	function	line:2578
+operator ->	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^T* tree<T, tree_node_allocator>::iterator_base::operator->() const$/;"	function	line:1901
+operator <<	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^std::ostream& operator<<( std::ostream& os, const ConfigFile& cf )$/;"	function	line:54
+operator <<	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline std::ostream& operator<<( std::ostream& os, const MTRand& mtrand )$/;"	function	line:383
+operator =	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand& MTRand::operator=( const MTRand& o )$/;"	function	line:401
+operator =	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^CXYEigen<Real>& CXYEigen<Real>::operator= (const CXYMatrix<Real>& rkM)$/;"	function	line:45
+operator =	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^CXYLapackEigen<Real>& CXYLapackEigen<Real>::operator= (const CXYMatrix<Real>& rkM)$/;"	function	line:71
+operator =	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^CXYPDB& CXYPDB::operator= (const CXYPDB& rkPDB)$/;"	function	line:62
+operator =	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::operator=(const tree<T, tree_node_allocator>& other)$/;"	function	line:522
+operator ==	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::breadth_first_queued_iterator::operator==(const breadth_first_queued_iterator& other) const$/;"	function	line:2264
+operator ==	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::fixed_depth_iterator::operator==(const fixed_depth_iterator& other) const$/;"	function	line:2342
+operator ==	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::leaf_iterator::operator==(const leaf_iterator& other) const$/;"	function	line:1956
+operator ==	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::post_order_iterator::operator==(const post_order_iterator& other) const$/;"	function	line:1914
+operator ==	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::pre_order_iterator::operator==(const pre_order_iterator& other) const$/;"	function	line:1928
+operator ==	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^bool tree<T, tree_node_allocator>::sibling_iterator::operator==(const sibling_iterator& other) const$/;"	function	line:1942
+operator >>	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^std::istream& operator>>( std::istream& is, ConfigFile& cf )$/;"	function	line:68
+operator >>	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline std::istream& operator>>( std::istream& is, MTRand& mtrand )$/;"	function	line:391
+operator []	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^CXYPDBAtom* CXYPDB::operator[] (int iInd)$/;"	function	line:46
+operator []	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^const CXYPDBAtom* CXYPDB::operator[] (int iInd) const$/;"	function	line:40
+pNext	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 *pNext;     \/\/ next value to get from state$/;"	member	line:82
+parent	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		tree_node_<T> *parent;$/;"	member	line:64
+parent	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::parent(iter position) $/;"	function	line:754
+parent_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				tree_node *parent_;$/;"	member	line:225
+phi	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double phi;		\/\/ yaw$/;"	member	line:58
+pix2ang_nest	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^void CXYSO3Sequence::pix2ang_nest(long nside, long ipix, double *theta, double *phi){$/;"	function	line:65
+point_	/Users/yunxu/workspace/projects/chromatin/include/XYPoint3D.h	/^	Real point_[3];$/;"	member	line:61
+pointer	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				typedef T*                              pointer;$/;"	typedef	line:99
+post_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class post_order_iterator : public iterator_base {$/;"	class	line:144
+post_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::post_order_iterator::post_order_iterator() $/;"	function	line:2120
+post_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::post_order_iterator::post_order_iterator(const iterator_base &other)$/;"	function	line:2132
+post_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::post_order_iterator::post_order_iterator(const sibling_iterator& other)$/;"	function	line:2138
+post_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::post_order_iterator::post_order_iterator(tree_node *tn)$/;"	function	line:2126
+pre_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class pre_order_iterator : public iterator_base { $/;"	class	line:126
+pre_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::pre_order_iterator::pre_order_iterator() $/;"	function	line:2012
+pre_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::pre_order_iterator::pre_order_iterator(const iterator_base &other)$/;"	function	line:2024
+pre_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::pre_order_iterator::pre_order_iterator(const sibling_iterator& other)$/;"	function	line:2030
+pre_order_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::pre_order_iterator::pre_order_iterator(tree_node *tn)$/;"	function	line:2018
+prepend_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::prepend_child(iter position)$/;"	function	line:852
+prepend_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::prepend_child(iter position, const T& x)$/;"	function	line:906
+prepend_child	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::prepend_child(iter position, iter other)$/;"	function	line:942
+prepend_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::prepend_children(iter position, sibling_iterator from, sibling_iterator to)$/;"	function	line:969
+prev_sibling	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		tree_node_<T> *prev_sibling, *next_sibling;$/;"	member	line:66
+previous_sibling	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::previous_sibling(iter position) const$/;"	function	line:762
+printSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^void CXYSO3Sequence::printSO3Sequence(){$/;"	function	line:421
+print_subtree_bracketed	/Users/yunxu/workspace/projects/chromatin/include/tree_util.hh	/^void print_subtree_bracketed(const tree<T>& t, typename tree<T>::iterator iRoot, std::ostream& str) $/;"	function	line:64
+print_tree_bracketed	/Users/yunxu/workspace/projects/chromatin/include/tree_util.hh	/^void print_tree_bracketed(const tree<T>& t, std::ostream& str) $/;"	function	line:48
+psi	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double psi;		\/\/ roll$/;"	member	line:57
+rand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::rand( const double n )$/;"	function	line:322
+rand	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::rand()$/;"	function	line:319
+rand53	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::rand53()$/;"	function	line:337
+randDblExc	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::randDblExc( const double n )$/;"	function	line:334
+randDblExc	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::randDblExc()$/;"	function	line:331
+randExc	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::randExc( const double n )$/;"	function	line:328
+randExc	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::randExc()$/;"	function	line:325
+randInt	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::uint32 MTRand::randInt( const uint32 n )$/;"	function	line:300
+randInt	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline MTRand::uint32 MTRand::randInt()$/;"	function	line:284
+randNorm	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline double MTRand::randNorm( const double mean, const double stddev )$/;"	function	line:343
+range_first	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::tree_node *tree<T, tree_node_allocator>::sibling_iterator::range_first() const$/;"	function	line:2588
+range_last	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::tree_node *tree<T, tree_node_allocator>::sibling_iterator::range_last() const$/;"	function	line:2595
+read	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^T ConfigFile::read( const string& key ) const$/;"	function	line:174
+read	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^T ConfigFile::read( const string& key, const T& value ) const$/;"	function	line:184
+readInto	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^bool ConfigFile::readInto( T& var, const string& key ) const$/;"	function	line:195
+readInto	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^bool ConfigFile::readInto( T& var, const string& key, const T& value ) const$/;"	function	line:208
+reference	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				typedef T&                              reference;$/;"	typedef	line:100
+reload	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::reload()$/;"	function	line:184
+remove	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^void ConfigFile::remove( const string& key )$/;"	function	line:28
+reparent	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::reparent(iter position, sibling_iterator begin, sibling_iterator end)$/;"	function	line:1249
+reparent	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^template <typename iter> iter tree<T, tree_node_allocator>::reparent(iter position, iter from)$/;"	function	line:1297
+replace	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::replace(iter position, const T& x)$/;"	function	line:1102
+replace	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^iter tree<T, tree_node_allocator>::replace(iter position, const iterator_base& from)$/;"	function	line:1111
+replace	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::replace($/;"	function	line:1175
+save	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::save( uint32* saveArray ) const$/;"	function	line:364
+second	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	T2 second;$/;"	member	line:40
+seed	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::seed( const uint32 oneSeed )$/;"	function	line:200
+seed	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::seed( uint32 *const bigSeed, const uint32 seedLength )$/;"	function	line:207
+seed	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^inline void MTRand::seed()$/;"	function	line:242
+setComment	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string setComment( const string& s )$/;"	function	line:93
+setDelimiter	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^	string setDelimiter( const string& s )$/;"	function	line:91
+set_head	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::pre_order_iterator tree<T, tree_node_allocator>::set_head(const T& x)$/;"	function	line:984
+set_parent_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::sibling_iterator::set_parent_()$/;"	function	line:2524
+sibling	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^typename tree<T, tree_node_allocator>::sibling_iterator tree<T, tree_node_allocator>::sibling(const iterator_base& it, unsigned int num)$/;"	function	line:1844
+sibling_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		class sibling_iterator : public iterator_base {$/;"	class	line:207
+sibling_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::sibling_iterator::sibling_iterator() $/;"	function	line:2497
+sibling_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::sibling_iterator::sibling_iterator(const iterator_base& other)$/;"	function	line:2511
+sibling_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::sibling_iterator::sibling_iterator(const sibling_iterator& other)$/;"	function	line:2518
+sibling_iterator	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::sibling_iterator::sibling_iterator(tree_node *tn)$/;"	function	line:2504
+size	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^size_t tree<T, tree_node_allocator>::size() const$/;"	function	line:1599
+size	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^size_t tree<T, tree_node_allocator>::size(const iterator_base& top) const$/;"	function	line:1611
+size_type	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				typedef size_t                          size_type;$/;"	typedef	line:101
+skip_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::iterator_base::skip_children()$/;"	function	line:1982
+skip_children	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::iterator_base::skip_children(bool skip)$/;"	function	line:1988
+skip_current_children_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				bool skip_current_children_;$/;"	member	line:122
+sort	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::sort(sibling_iterator from, sibling_iterator to, $/;"	function	line:1478
+sort	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::sort(sibling_iterator from, sibling_iterator to, bool deep)$/;"	function	line:1470
+sort_pair_first_greater	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^struct sort_pair_first_greater {$/;"	struct	line:23
+state	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 state[N];   \/\/ internal state$/;"	member	line:81
+str_	/Users/yunxu/workspace/projects/chromatin/include/XYFile.h	/^   string str_;$/;"	member	line:108
+string_as_T	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^T ConfigFile::string_as_T( const string& s )$/;"	function	line:133
+string_as_T	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^inline bool ConfigFile::string_as_T<bool>( const string& s )$/;"	function	line:156
+string_as_T	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.h	/^inline string ConfigFile::string_as_T<string>( const string& s )$/;"	function	line:146
+subtree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator> tree<T, tree_node_allocator>::subtree(sibling_iterator from, sibling_iterator to) const$/;"	function	line:1583
+subtree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::subtree(tree& tmp, sibling_iterator from, sibling_iterator to) const$/;"	function	line:1592
+swap	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::swap(iterator one, iterator two)$/;"	function	line:1758
+swap	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^void tree<T, tree_node_allocator>::swap(sibling_iterator it)$/;"	function	line:1737
+theta	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double theta; \/\/ pitch$/;"	member	line:56
+third	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	T3 third;$/;"	member	line:41
+top_node	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				tree_node *top_node;$/;"	member	line:203
+top_node	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				tree_node *top_node;$/;"	member	line:247
+traversal_queue	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				std::queue<tree_node *> traversal_queue;$/;"	member	line:178
+tree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^class tree {$/;"	class	line:71
+tree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::tree() $/;"	function	line:474
+tree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::tree(const T& x) $/;"	function	line:480
+tree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::tree(const iterator_base& other)$/;"	function	line:487
+tree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::tree(const tree<T, tree_node_allocator>& other)$/;"	function	line:528
+tree_hh_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^#define tree_hh_$/;"	macro	line:25
+tree_node	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		typedef tree_node_<T> tree_node;$/;"	typedef	line:73
+tree_node_	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^class tree_node_ { \/\/ size: 5*4=20 bytes (on 32 bit arch), can be reduced by 8.$/;"	class	line:62
+tree_util_hh_	/Users/yunxu/workspace/projects/chromatin/include/tree_util.hh	/^#define tree_util_hh_$/;"	macro	line:28
+trim	/Users/yunxu/workspace/projects/chromatin/include/ConfigFile.cpp	/^void ConfigFile::trim( string& s )$/;"	function	line:45
+triple	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^	triple(const T1 &t1,const T2 &t2,const T3 &t3):$/;"	function	line:33
+triple	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.h	/^class triple$/;"	class	line:30
+twist	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	uint32 twist( const uint32 m, const uint32 s0, const uint32 s1 ) const$/;"	function	line:135
+uint32	/Users/yunxu/workspace/projects/chromatin/include/MersenneTwister.h	/^	typedef unsigned long uint32;  \/\/ unsigned integer type, at least 32 bits$/;"	typedef	line:73
+value_type	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^				typedef T                               value_type;$/;"	typedef	line:98
+value_type	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^		typedef T value_type;$/;"	typedef	line:76
+w	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double w;$/;"	member	line:49
+wrap	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^template <typename iter> iter tree<T, tree_node_allocator>::wrap(iter position, const T& x)$/;"	function	line:1304
+x	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double x;$/;"	member	line:50
+y	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double y;$/;"	member	line:51
+z	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.h	/^	double z;$/;"	member	line:52
+~CXYEigen	/Users/yunxu/workspace/projects/chromatin/include/XYEigen.cpp	/^CXYEigen<Real>::~CXYEigen ()$/;"	function	line:32
+~CXYEnsemble	/Users/yunxu/workspace/projects/chromatin/include/XYEnsemble.cpp	/^CXYEnsemble::~CXYEnsemble(void)$/;"	function	line:49
+~CXYFile	/Users/yunxu/workspace/projects/chromatin/include/XYFile.cpp	/^CXYFile::~CXYFile(void)$/;"	function	line:12
+~CXYLapackEigen	/Users/yunxu/workspace/projects/chromatin/include/XYLapack.cpp	/^CXYLapackEigen<Real>::~CXYLapackEigen ()$/;"	function	line:57
+~CXYPDB	/Users/yunxu/workspace/projects/chromatin/include/XYPDB.cpp	/^CXYPDB::~CXYPDB(void)$/;"	function	line:14
+~CXYPDBAtom	/Users/yunxu/workspace/projects/chromatin/include/XYPDBAtom.cpp	/^CXYPDBAtom::~CXYPDBAtom(void)$/;"	function	line:23
+~CXYSIS	/Users/yunxu/workspace/projects/chromatin/include/XYSIS.cpp	/^CXYSIS::~CXYSIS(void)$/;"	function	line:69
+~CXYSO3Sequence	/Users/yunxu/workspace/projects/chromatin/include/XYSO3Sequence.cpp	/^CXYSO3Sequence::~CXYSO3Sequence(){$/;"	function	line:60
+~CXYUtility	/Users/yunxu/workspace/projects/chromatin/include/XYUtility.cpp	/^CXYUtility::~CXYUtility(void)$/;"	function	line:10
+~tree	/Users/yunxu/workspace/projects/chromatin/include/tree.hh	/^tree<T, tree_node_allocator>::~tree()$/;"	function	line:495

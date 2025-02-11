@@ -1,0 +1,36 @@
+package:
+  name: pcsac       
+  version: "1.0.0"      
+
+source:
+  path: ./
+
+build:
+  number: 0                  
+  script: |
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX
+    make
+    make install             
+
+requirements:
+  build:
+    - gcc 12.2                
+    - cmake >=2.6             
+    - make  
+    - eigen 3.4               
+  host:
+    - boost >=1.81            
+    - eigen 3.4              
+  run:
+    - python >=3.10           
+    - boost >=1.81
+    - eigen 3.4               
+
+about:
+  home: https://github.com/G2Lab/pCSAC  
+  license: Columbia University                                    
+  summary: "A C-based library for generating high-resolution Hi-C matrices from low-resolution data using probabilistic methods."
+  description: |
+    A C-based library implementing pC-SAC (probabilistically Constrained Self-Avoiding Chromatin), a computational method for generating high-resolution Hi-C matrices from low-resolution input. By employing adaptive importance sampling and sequential Monte Carlo techniques, this library produces ensembles of 3D chromatin chains that satisfy physical constraints derived from low-resolution Hi-C data, enabling accurate and biologically meaningful reconstructions of chromatin structure.

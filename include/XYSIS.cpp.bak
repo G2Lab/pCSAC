@@ -1,0 +1,1627 @@
+#include "XYSIS.h"
+
+//------------------------------------------------------------------------
+CXYSIS::CXYSIS()
+{
+}
+
+CXYSIS::CXYSIS(
+  char* cOutPath,
+  float fPersistenLength,
+  float fCollisionLength,
+  float fPackingDensity,
+  float fNucleusSphereDiameter,
+  int iNumNodes,
+  int iNumSamplePoints,
+  char* cStartEndFile,
+  int iMmax,
+  float fRho_1,
+  float fRho_2,
+  float fTau_t,
+  float fAdjust,
+  char* cDistFile)
+{
+  m_cOutPath = new char[1024];
+  m_cDistFileName = new char[1024];
+  SetOutPath(cOutPath);
+  SetPersistenceLength( fPersistenLength );
+  SetPackingDensity(fPackingDensity);
+  SetNucleusSphereDiameter(fNucleusSphereDiameter);
+
+  m_iNumSamplePoints = iNumSamplePoints;
+  if (strcmp(cStartEndFile, "") == 0){
+    // coarse version
+    // given number of nodes
+    SetNumNodes(iNumNodes); 
+    // set each segment length equal to persistence length
+    SetSegLengths();
+  } else {
+    // fine version
+    // read start end position file
+    // dynamic setting each segment length determined by mass density
+//    SetSegLengths(cStartEndFile,"DIF"); 
+    SetSegLengths(cStartEndFile, "AVG");
+    SetNumNodes(m_vfSegLength.size()); // set node numbers
+  }
+  SetCollisionLength( fCollisionLength );
+  m_pTChain = new tree< CXYVector<float> > ();
+  m_pMSamplesOrg = new CXYMatrix<float>;
+  SetSamplesOrg();
+  
+  // For SIS
+  SetMmax( iMmax );
+  SetRho_1( fRho_1 );
+  SetRho_2( fRho_2 );
+  SetTau_t( fTau_t );
+  SetAjust( fAdjust );
+
+//  m_pMDist = new CXYMatrix<float>();
+  SetDistFileName(cDistFile);
+  SetDistMatrix();
+  
+  m_pVErr = new CXYVector<float>(iMmax);
+  m_pVEColl = new CXYVector<float>(iMmax);
+
+  
+}
+
+//------------------------------------------------------------------------
+CXYSIS::~CXYSIS(void)
+{
+  delete m_pVErr;
+  delete m_pVEColl;
+//  delete m_pMDist;
+  delete m_cDistFileName;
+  delete m_cOutPath;
+  delete m_pMSamplesOrg;
+  delete m_pTChain;
+}
+
+//------------------------------------------------------------------------
+void CXYSIS::SetPersistenceLength(float fPL)
+{
+  m_fPersistenceLength = fPL;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetPersistenceLength(void)
+{
+  return m_fPersistenceLength;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetCollisionLength(float fCollision)
+{
+  vector<float>& vfSegment = GetSegLengths();
+  float min_diameter = *(min_element(vfSegment.begin(), vfSegment.end()));
+  m_fCollisionLength = min(fCollision,min_diameter);
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetCollisionLength(void)
+{
+  return m_fCollisionLength;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetPackingDensity(float fPackingDensity)
+{
+  m_fPackingDensity = fPackingDensity;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetPackingDensity(void)
+{
+  return m_fPackingDensity;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetNucleusSphereDiameter(float fNucleusSphereDiameter)
+{
+  m_fNucleusSphereDiameter = fNucleusSphereDiameter;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetNucleusSphereDiameter(void)
+{
+  return m_fNucleusSphereDiameter;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetNumNodes(int iNumNodes){
+  m_iNumNodes = iNumNodes;
+}
+//------------------------------------------------------------------------
+int CXYSIS::GetNumNodes(void){
+  return m_iNumNodes;
+}
+
+//------------------------------------------------------------------------
+// Generate sphere sample points with radius persistence length.
+void CXYSIS::SetSamplesOrg(void)
+{
+  CXYSO3Sequence sO3sequence(m_iNumSamplePoints);
+  sO3sequence.SetSO3Sequence();
+  (*m_pMSamplesOrg) = sO3sequence.GetSO3Sequence();
+}
+//------------------------------------------------------------------------
+CXYMatrix<float> CXYSIS::GetSamplesOrg()
+{
+  return (*m_pMSamplesOrg);
+}
+
+//------------------------------------------------------------------------
+//CXYMatrix<float> CXYSIS::NewXYZ(CXYVector<float> kV_0, CXYVector<float> kV_1, CXYVector<float> kV_2)
+//{
+//  CXYMatrix<float> kMXYZ(3,3);
+//  CXYVector<float> kV_Z = kV_2 - kV_1;
+//  CXYVector<float> kV_01 = kV_1 - kV_0;
+//  kV_01.Normalize();
+//  if (fabs(kV_Z.Dot(kV_01)) < CXYMath<float>::ZERO_TOLERANCE)
+//  { // two line parallel
+//    kMXYZ = NewXYZ(kV_1,kV_2);
+//  } else {
+//    float a = kV_Z[0],  b = kV_Z[1],  c = kV_Z[2];
+//    float x = kV_01[0], y = kV_01[1], z = kV_01[2];
+//    
+//    float fX[3] = { y*c - z*b, z*a - x*c, x*b - y*a };
+//    CXYVector<float> kV_X(3,fX);
+//    kV_X.Normalize();
+//    
+//    x = kV_Z[0], y = kV_Z[1], z = kV_Z[2];
+//    a = kV_X[0], b = kV_X[1], c = kV_X[2];
+//    float fY[3] = { y*c - z*b, z*a - x*c, x*b - y*a };
+//    CXYVector<float> kV_Y(3,fY);
+//    kV_Y.Normalize();
+//    kMXYZ.SetRow(0, kV_X);
+//    kMXYZ.SetRow(1, kV_Y);
+//    kMXYZ.SetRow(2, kV_Z);
+//  }
+//  
+//  return kMXYZ;
+//}
+////------------------------------------------------------------------------
+//CXYMatrix<float> CXYSIS::NewXYZ(CXYVector<float> kV_1, CXYVector<float> kV_2)
+//{
+//  CXYMatrix<float> kMXYZ(3,3);
+//  CXYVector<float> kV_Z = kV_2 - kV_1;
+//  kV_Z.Normalize();
+//  float a = kV_Z[0], b= kV_Z[1], c = kV_Z[2];
+//  
+//  float x, y, z;
+//  if (c > CXYMath<float>::ZERO_TOLERANCE ) 
+//  {
+//    x = 1; y = 0; z = -(a*x+b*y)/c;
+//  } else if (b > CXYMath<float>::ZERO_TOLERANCE ) 
+//  {
+//    x = 0; z = 1; y = -(a*x+c*z)/b;
+//  } else {
+//    y = 1; z = 0; x = -(b*y+c*z)/a;
+//  }
+//  float fX[3] = {x,y,z};
+//  CXYVector<float> kV_X(3,fX);
+//  float fY[3] = {b*z-c*y, c*x-a*z, a*y-b*x};
+//  CXYVector<float> kV_Y(3,fY);
+//  
+//  kMXYZ.SetRow(0, kV_X);
+//  kMXYZ.SetRow(1, kV_Y);
+//  kMXYZ.SetRow(2, kV_Z);
+//  
+//  
+//  return kMXYZ;
+//}
+
+//------------------------------------------------------------------------
+//CXYMatrix<float> CXYSIS::GetRotMatrix(CXYMatrix<float> &rkMXYZ)
+//{
+//  CXYVector<float> kV_X = rkMXYZ.GetRow(0);
+//  CXYVector<float> kV_Y = rkMXYZ.GetRow(1);
+//  CXYVector<float> kV_Z = rkMXYZ.GetRow(2);
+//  
+//  CXYMatrix<float> kM_A(3,3);
+//  float alpha, beta, gamma;
+//  float Z3diff = fabs(1-kV_Z[2]*kV_Z[2]);
+//  if ( Z3diff < CXYMath<float>::ZERO_TOLERANCE) 
+//  {
+//    alpha = acos( min(float(1.0), max(float(-1.0), kV_X[0])));
+//    beta  = 0;
+//    gamma = 0;
+//  } else {    // http://www.macosxguru.net/article.php?story=20040210124637626
+//    float Denorm = sqrt(Z3diff);
+//    alpha = acos(min(float(1.0), max(float(-1.0), -kV_Z[1]/Denorm)));
+//    beta  = acos(min(float(1.0), max(float(-1.0), -kV_Z[2])));
+//    gamma = acos(min(float(1.0), max(float(-1.0), -kV_Y[2]/Denorm)));
+//  }
+//  
+//  kM_A[0][0] = cos(gamma) * cos(alpha) - cos(beta) * sin(alpha) * sin(gamma);
+//  kM_A[0][1] = cos(gamma) * sin(alpha) + cos(beta) * cos(alpha) * sin(gamma);
+//  kM_A[0][2] = sin(gamma) * sin(beta);
+//  kM_A[1][0] = -sin(gamma) * cos(alpha) - cos(beta) * sin(alpha) * cos(gamma);
+//  kM_A[1][1] = -sin(gamma) * sin(alpha) + cos(beta) * cos(alpha) * cos(gamma);
+//  kM_A[1][2] = cos(gamma) * sin(beta);
+//  kM_A[2][0] = sin(beta) * sin(alpha);
+//  kM_A[2][1] = -sin(beta) * cos(alpha);
+//  kM_A[2][2] = cos(beta);
+//  
+//  kM_A.GetInverse(kM_A);
+//  
+//  
+//  return kM_A;
+//}
+
+//------------------------------------------------------------------------
+void CXYSIS::InitializeChain()
+{
+  tree< CXYVector<float> >* ptr = GetTree();
+  // erase all nodes if not empty
+  if (!ptr->empty()) {
+    ptr->clear();
+  }
+
+  
+  tree< CXYVector<float> >::iterator top, root, pos;
+  
+  top = ptr->begin();
+  
+  // first node position
+  CXYVector<float> kV_startpoint = RndSetStartPoint();
+  root = ptr->insert(top, kV_startpoint);
+  
+  CXYMatrix<float> kMSamplesOrg = GetSamplesOrg();
+  kMSamplesOrg *= GetSegLength(0); // index is 0, first one segment
+  int iSampleSize = kMSamplesOrg.GetRows();
+  int iRnd;
+  CXYVector<float> kV_Point(3);
+  // second node position
+  while (1) {
+    MTRand mtrand;
+    iRnd = mtrand.randInt(iSampleSize-1);  // integer in [0,iSampleSize-1]
+    kV_Point = kMSamplesOrg.GetRow(iRnd) + kV_startpoint; // second point
+    if (IsInsideSphere(kV_Point) && ! IsCollision(root,kV_Point)) {
+      pos = ptr->append_child(root, kV_Point);
+      break;
+    }
+  }
+}
+//------------------------------------------------------------------------
+tree< CXYVector<float> >* CXYSIS::GetTree()
+{
+  return m_pTChain;
+}
+//------------------------------------------------------------------------
+CXYVector<float> CXYSIS::RndSetStartPoint(void)
+{
+  float fdiameter = GetNucleusSphereDiameter();
+  float fradius = fdiameter/2;
+  MTRand mtrand;
+  
+  // Check if the random point located in the neuclus sphere.
+  // When one point satisfy the condition, we accept it.
+  float fCoord[3];
+  while (1) {
+    fCoord[0] = mtrand.randExc(fradius);
+    fCoord[1] = mtrand.randExc(fradius);
+    fCoord[2] = mtrand.randExc(fradius);
+    if (IsInsideSphere(fCoord)){
+      break;
+    }
+  }
+//  cout << x << ";" << y << ";" << z<<";" <<endl;
+//  cout << x*x+y*y+z*z << endl;
+//  cout << fradius2 << endl;
+  CXYVector<float> kV (3,fCoord);
+  return kV;
+}
+//------------------------------------------------------------------------
+bool CXYSIS::IsInsideSphere(CXYVector<float> kV_point)
+{
+  float fradius = GetNucleusSphereDiameter()/2;
+  float fradius2 = fradius*fradius;
+  bool flag;
+  if (kV_point.SquaredLength() < fradius2) {
+    flag = true;
+  }else {
+    flag = false;
+  }
+  return flag;
+  
+}
+//------------------------------------------------------------------------
+bool CXYSIS::IsInsideSphere(float* fCoord)
+{
+  float fradius = GetNucleusSphereDiameter()/2;
+  float fradius2 = fradius*fradius;
+  bool flag;
+  if (fCoord[0]*fCoord[0] + fCoord[1]*fCoord[1] + fCoord[2]*fCoord[2]
+      < fradius2) {
+    flag = true;
+  }else {
+    flag = false;
+  }
+  return flag;
+}
+
+//------------------------------------------------------------------------
+bool CXYSIS::IsCollision(tree<CXYVector<float> >::iterator  &ritNode, CXYVector<float> kV_point)
+{
+  float fCollisionLength = GetCollisionLength();
+  // to speed up the caculation, we calculate power(2)
+  float fCollisionLength_Squar = fCollisionLength*fCollisionLength; 
+  // enumerate previous nodes
+  tree< CXYVector<float> >* ptr = GetTree();
+  tree< CXYVector<float> >::iterator node, lastsecond_node;
+  
+  tree<CXYVector<float> >::iterator pos = ritNode;
+  pos = ptr->parent(pos);
+  while (ptr->is_valid(pos)) 
+  {
+    if( (kV_point-(*pos)).SquaredLength() < fCollisionLength_Squar ){
+      return true;
+    }
+    pos = ptr->parent(pos);
+  }
+  return false;
+
+//  lastsecond_node = ptr->end();
+//  lastsecond_node --;
+//  for (node = ptr->begin(); node != lastsecond_node; ++node) {
+//    //    cout << (kV_point-(*node)).Length() << endl;
+////    cout << fCollisionLength << endl;
+//    if( (kV_point-(*node)).SquaredLength() < fCollisionLength_Squar ){
+//      flag = true;
+//      break;
+//    }
+//  }
+//  return flag;
+}
+
+//------------------------------------------------------------------------
+bool CXYSIS::GrowthOneChain()
+{
+  bool Flag = true;
+  InitializeChain();
+  MTRand mtrand;
+  
+  int iNumNodes = GetNumNodes() - 2;
+  tree< CXYVector<float> >* ptr = GetTree();
+  tree< CXYVector<float> >::pre_order_iterator node;
+
+
+  for (int i =0 ; i < iNumNodes; i++) {
+    
+    node = ptr->end(); 
+    node --; // go to last node
+
+    // find parent node
+//    par = ptr->parent(node);
+    
+    // find grandparent node
+//    gra = ptr->parent(par);
+
+//    CXYMatrix<float> kMXYZ(3);
+//    if (ptr->is_valid(gra)) {
+//      kMXYZ = NewXYZ((*gra), (*par), (*node));
+//    }else {
+//      kMXYZ = NewXYZ((*par), (*node));
+//    }
+//    
+//    CXYMatrix<float> kMRotate = GetRotMatrix(kMXYZ);
+//
+//    CXYMatrix<float> kMSamplesOrg = GetSamplesOrg();
+//    CXYMatrix<float> kMSamplesPoints = kMSamplesOrg.TimesTranspose(kMRotate);
+    CXYMatrix<float> kMSamplesPoints = GetSamplesOrg();
+    kMSamplesPoints *= GetSegLength(i+1); // because initialize chain already done
+    
+    int iSampleSize = kMSamplesPoints.GetRows();
+    int iRnd;
+
+    CXYVector<float> kV_Point(3);
+    int n_trial = 1000;
+    while (n_trial > 0) {
+      iRnd = mtrand.randInt(iSampleSize-1);  // integer in [0,iSampleSize-1]
+      kV_Point = kMSamplesPoints.GetRow(iRnd) + (*node); // next point position
+      // check if inside neuclus sphere and there is no collision
+      if (IsInsideSphere(kV_Point) && (! IsCollision(node,kV_Point))) {
+        ptr->append_child(node, kV_Point);
+        break;
+      }
+      n_trial --;
+    }
+    // do not continue our growing chain
+    if (n_trial == 0){
+      Flag = false;
+      break;
+    }
+  }
+  return Flag;
+}
+//------------------------------------------------------------------------
+void CXYSIS::WriteChain(char* fn)
+{
+//http://stdcxx.apache.org/doc/stdlibug/34-2.html 
+  
+  tree<CXYVector<float> > * ptr = GetTree();
+  tree< CXYVector<float> >::iterator pos = ptr->begin();
+  char buffer[1024];
+  
+  ostream* fp;
+  if (strcmp(fn,"")) {
+    sprintf(buffer, "%s/%s", GetOutPath(),fn);
+    fp = new std::ofstream(buffer);
+  }else {
+    fp = &std::cout;
+  }
+
+  while (ptr->is_valid(pos)) {
+    *fp << (*pos)[0] <<"\t" <<(*pos)[1] <<"\t"<<(*pos)[2]<<endl;
+    ++pos;
+  }
+
+  if (fp != &std::cout)
+    delete fp;  
+}
+//------------------------------------------------------------------------
+void CXYSIS::WriteDistance(char* fn)
+{
+  //http://stdcxx.apache.org/doc/stdlibug/34-2.html 
+  
+  tree<CXYVector<float> > * ptr = GetTree();
+  tree< CXYVector<float> >::iterator root = ptr->begin();
+  tree< CXYVector<float> >::fixed_depth_iterator pos1, pos2;
+  float deltaX, deltaY, deltaZ, length;
+  char buffer[1024];
+  
+  ostream* fp;
+  if (strcmp(fn,"")) {
+    sprintf(buffer, "%s/%s", GetOutPath(),fn);
+    fp = new std::ofstream(buffer);
+  }else {
+    fp = &std::cout;
+  }
+
+  int iNumNodes = GetNumNodes();
+  for (int i = 0; i<iNumNodes-1; i++) {
+    pos1 = ptr->begin_fixed(root, i);
+    for (int j = i+1; j<iNumNodes; j++) {
+      pos2 = ptr->begin_fixed(root, j);
+      
+      deltaX = (*pos2)[0]-(*pos1)[0];
+      deltaY = (*pos2)[1]-(*pos1)[1];
+      deltaZ = (*pos2)[2]-(*pos1)[2];
+      length = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
+      
+      *fp << i+1 << "\t" << j+1 << "\t"<< length << endl;
+    }
+  }
+  
+  if (fp != &std::cout)
+    delete fp;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetOutPath(char* cPathName)
+{
+  CXYFile::MakeDirectory(cPathName,0755);
+  strcpy(m_cOutPath,cPathName);
+}
+
+//------------------------------------------------------------------------
+char* CXYSIS::GetOutPath(void)
+{
+  return m_cOutPath;
+}
+//------------------------------------------------------------------------
+//void CXYSIS::SetSegLengths(char* cStartEndFile){
+//  CXYMatrix<float> kMStartEnd = CXYFile::ReadMatrix(cStartEndFile);
+//  for (int i= 0; i<kMStartEnd.GetRows(); i++) {
+//    int baselen = (int) ( kMStartEnd[i][1] - kMStartEnd[i][0] );
+//    m_vfSegLength.push_back(((float)baselen * GetPackingDensity()));
+//  }
+//
+//}
+//------------------------------------------------------------------------
+void CXYSIS::SetSegLengths(char* cStartEndFile,const char* cMethod){
+  CXYMatrix<float> kMStartEnd = CXYFile::ReadMatrix(cStartEndFile);
+  
+  if (strcmp(cMethod, "AVG") == 0) {
+    // average different node length
+    float len = 0L;
+    for (int i= 0; i<kMStartEnd.GetRows(); i++) {
+      len = len + ( kMStartEnd[i][1] - kMStartEnd[i][0] +1 ) * GetPackingDensity();
+    }
+    float avglen = len/(float)kMStartEnd.GetRows();
+    // set fixed length
+    SetPersistenceLength( avglen );
+
+    for (int i= 0; i<kMStartEnd.GetRows(); i++) {
+      m_vfSegLength.push_back(GetPersistenceLength());
+    }
+    
+  } else if (strcmp(cMethod, "DIF") == 0) {
+    // different node length
+    for (int i= 0; i<kMStartEnd.GetRows(); i++) {
+      int baselen = (int) ( kMStartEnd[i][1] - kMStartEnd[i][0] );
+      m_vfSegLength.push_back(((float)baselen * GetPackingDensity()));
+    }
+  } else {
+    cerr  << "Please type Method" << endl;
+    exit(-1);
+  }
+
+  
+}
+
+//------------------------------------------------------------------------
+vector<float> & CXYSIS::GetSegLengths(void){
+  return m_vfSegLength;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetSegLength(int ind){
+  return m_vfSegLength[ind];
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetSegLengths(void){
+  for (int i= 0; i<GetNumNodes(); i++) {
+    m_vfSegLength.push_back(GetPersistenceLength());
+  }
+}
+//------------------------------------------------------------------------
+//------------------------------------------------------------------------
+//------------------------------------------------------------------------
+void CXYSIS::SetMmax(int iMmax)
+{
+  m_iMmax = iMmax;
+}
+//------------------------------------------------------------------------
+int CXYSIS::GetMmax(void)
+{
+  return m_iMmax;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetRho_1(float fRho_1)
+{
+  m_fRho_1 = fRho_1;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetRho_1(void)
+{
+  return  m_fRho_1;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetRho_2(float fRho_2)
+{
+  m_fRho_2 = fRho_2;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetRho_2(void)
+{
+  return m_fRho_2;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetTau_t(float fTau_t)
+{
+  m_fTau_t = fTau_t;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetTau_t(void)
+{
+  return m_fTau_t;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetAjust(float fAjust)
+{
+  m_fAdjust = fAjust;
+}
+//------------------------------------------------------------------------
+float CXYSIS::GetAjust(void)
+{
+  return  m_fAdjust;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SIS_Algorithm(void)
+{
+//  vector<triple<int,int,float> >::iterator it_trip;
+//  for (it_trip = m_vtriple.begin(); it_trip!=m_vtriple.end(); it_trip++) {
+//    if ((*it_trip).first == 1) {
+//      cout << (*it_trip).second << " " << (*it_trip).third << endl;
+//    }
+//  }
+  
+  MTRand mtrand;
+  
+  // Sequential important sampling algorithm
+  SetSamplesOrg();
+  InitializeChain_SISRoot();
+  tree< CXYVector<float> >* tr = GetTree();
+  tree< CXYVector<float> >::iterator pos;
+
+//  CXYMatrix<float>& kMDist = GetDistMatrix();
+//  int iNumSeg = kMDist.GetRows();
+  int iNumSeg = GetNumNodes();
+  
+  for (int iSeg=2; iSeg<iNumSeg; iSeg++) {
+
+    // find upper level node
+//    int iLevel_upp = iSeg - 1;
+    int im_t = 0;
+//    int iCount =  GetCountContactNode(iSeg-1);
+    int iCount = GetCountContactNodesFromMap(iSeg);
+    
+    // get all upper nodes
+//    vector< tree<CXYVector<float> >::iterator > vitNodes_upp = GetNodeSet(iLevel_upp);
+    
+    vector< CXYMatrix<float> > vChains;
+    vector< tree< CXYVector<float> >::iterator > vitNodes_save;
+    
+    CXYMatrix<float> kMChain;
+    
+    // freely grow because no connections
+//    cout << "SegInd: " << iSeg  << ", iCount: " << iCount <<  endl;
+    if (iCount == 0) {
+      vector<tree<CXYVector<float> >::iterator > vtmp;
+      tree<CXYVector<float> >::iterator itNode_cur;
+      while (!m_qPrvNodes.empty()) {
+        itNode_cur = m_qPrvNodes.front();
+        m_qPrvNodes.pop_front(); // pop out
+
+        int iRnd = mtrand.randInt(m_iNumSamplePoints-1);
+        CXYVector<float> kV_NextVect = GetNodeNextPosition(itNode_cur,iSeg,iRnd);
+        float Point[] = {kV_NextVect[0],kV_NextVect[1],kV_NextVect[2]};
+        CXYVector<float> kV_Point(3,Point);
+        
+        pos = tr->append_child(itNode_cur,kV_NextVect);
+        vtmp.push_back(pos);
+      }
+      // save node to queue
+      for (vector<tree<CXYVector<float> >::iterator>::iterator vtmpit = vtmp.begin(); 
+           vtmpit < vtmp.end(); vtmpit++) {
+        m_qPrvNodes.push_back(*vtmpit);
+      }
+      continue; // go to next segment
+      
+    }
+    
+    // Nodes
+    tree<CXYVector<float> >::iterator itNode_cur;
+    while (!m_qPrvNodes.empty()) {
+      itNode_cur = m_qPrvNodes.front();
+      m_qPrvNodes.pop_front();
+
+      CXYMatrix<float> kMSamples = GetNodeSamples(itNode_cur,iSeg);
+      // Conformations for each node
+      for (int iSample=0; iSample<kMSamples.GetRows(); iSample++) {
+        CXYVector<float> kVPoint = kMSamples.GetRow(iSample);
+        kMChain = GrowthChain(itNode_cur,kVPoint);
+        
+        vChains.push_back(kMChain);
+        vitNodes_save.push_back(itNode_cur);
+      }
+    }
+    
+    
+    
+    
+    
+    int iL_t = vChains.size();
+    if (iL_t <= GetMmax()){
+      
+      im_t = iL_t;
+      
+      for (int iSample=0; iSample<im_t; iSample++) {
+        // append child node;
+        pos = tr->append_child(vitNodes_save[iSample],(vChains[iSample]).GetRow(iSeg));
+        m_qPrvNodes.push_back(pos);
+      }
+      
+    } 
+    else {
+      im_t = GetMmax();
+
+      // if the node no connection with others, randomly select iMmax node to cont.
+      cout << iSeg << " / " << iNumSeg << endl;
+      // calculate beta_t
+      vector<float> vfBeta_t;
+      for (unsigned int iSample = 0; iSample < vChains.size(); iSample ++) {
+        vfBeta_t.push_back(CalBeta_t(vChains[iSample]));
+      }
+      cout << endl;
+      // binary search const c
+      float fConst_C = BinSearchConstC(vfBeta_t);
+      
+      // get cumsum of min(C*Beta_t,1), order is ascend
+      vector<float> vfCumSum, vfMinCBeta1;
+      float fCumSum = 0, fMinCBeta1;
+      for (unsigned int iSample = 0; iSample < vChains.size(); iSample ++) {
+        fMinCBeta1 = min(fConst_C * (vfBeta_t[iSample]),1.0f);
+        fCumSum += fMinCBeta1;
+        
+        vfMinCBeta1.push_back(fMinCBeta1);
+        vfCumSum.push_back(fCumSum);
+      }
+      
+      // We can get a real number in the range 0 to 1, excluding 1
+      vector<int> vfSampleSelInd;
+      float fRand = 0;
+      for (int iSameleSel = 1; iSameleSel <= im_t; iSameleSel++) {
+        fRand = iSameleSel - mtrand.randExc();
+        
+        unsigned int iCumSumInd = 0;
+        while (fRand >  vfCumSum[iCumSumInd]) {
+          if (iCumSumInd == vfCumSum.size()-1) {
+            break;
+          }
+          ++iCumSumInd;
+        }
+        vfSampleSelInd.push_back(iCumSumInd);
+      }
+      
+      // append selected coordinates on certain node
+      CXYVector<float> kVector(6);
+      for (int iSample = 0; iSample < im_t; iSample++) {
+        int iChainInd = vfSampleSelInd[iSample];
+        kVector = vChains[iChainInd].GetRow(iSeg);
+        // recalculate weight
+        kVector[3] = kVector[3] - log(vfMinCBeta1[iChainInd]);
+        pos = tr->append_child(vitNodes_save[iChainInd],kVector);
+        
+        m_qPrvNodes.push_back(pos);
+        
+      }
+    }
+  }
+//  // output result
+//  vector< tree<CXYVector<float> >::iterator > vitNodes_fin;
+//  vitNodes_fin = GetNodeSet(iNumSeg-1);
+  GetTargetDistribution();
+//  WritePDBArr();
+  WritePtsArr();
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetDistFileName(char* cFileName)
+{
+  strcpy(m_cDistFileName, cFileName);
+}
+//------------------------------------------------------------------------
+char* CXYSIS::GetDistFileName(void)
+{
+  return m_cDistFileName;
+}
+//------------------------------------------------------------------------
+void CXYSIS::SetDistMatrix(void)
+{
+  char* FN = GetDistFileName();
+  CXYFile kFile;
+//  (*m_pMDist) = kFile.ReadMatrix(FN);
+//  (*m_pMDist) = kFile.ReadSparseMatrix(FN);
+//  
+//  m_vtriple.clear();
+////  for (int i =(*m_pMDist).GetRows()-1; i>0;i--) {
+////    for (int j=0; j<i; j++) {
+//  for (int i = 0 ; i< (*m_pMDist).GetRows(); i++) {
+////    for (int j =i+1; j< (*m_pMDist).GetRows(); j++) {
+//    for (int j = 0; j< (*m_pMDist).GetRows(); j++) {    
+//      if ((*m_pMDist)[i][j]> CXYMath<float>::ZERO_TOLERANCE) {
+////        cout << i <<" "<<j << endl;
+//        m_vtriple.push_back( CXYTriple <int,int,float>(i,j,(*m_pMDist)[i][j] ) );
+//      }
+//    }
+//  }
+  m_vtriple = kFile.ReadSparseMatrixToTriple(FN);
+  m_listConNodeInd.clear();
+  vector<CXYTriple<int,int,float> >::iterator it_trip;
+
+  for (it_trip = m_vtriple.begin(); it_trip != m_vtriple.end(); it_trip++) {
+    m_listConNodeInd.push_back( (*it_trip).first );
+  }
+  m_listConNodeInd.sort();
+  m_listConNodeInd.unique(); 
+//  list<int>::iterator lit;
+//  for (lit = m_listConNodeInd.begin(); lit != m_listConNodeInd.end(); lit++) {
+//    cout << *lit << endl;
+//  }
+//  cout << m_listConNodeInd.size() << endl;
+  
+}
+//------------------------------------------------------------------------
+CXYMatrix<float>& CXYSIS::GetDistMatrix(void)
+{
+  return *m_pMDist;
+}
+//------------------------------------------------------------------------
+vector<tree<CXYVector<float> >::iterator > CXYSIS::GetNodeSet(int iLevel)
+{
+  tree<CXYVector<float> >* ptr = GetTree();
+  tree<CXYVector<float> >::iterator root = ptr->begin();
+  tree<CXYVector<float> >::fixed_depth_iterator pos = ptr->begin_fixed(root,iLevel);
+  
+  vector< tree<CXYVector<float> >::iterator > vit;
+  while (ptr->is_valid(pos)) 
+  {
+    //    cout << (*(pos))[3] << endl;
+    vit.push_back(pos); 
+    ++pos;
+  }
+  return vit;
+}
+//------------------------------------------------------------------------
+CXYMatrix<float> CXYSIS::GrowthChain(tree< CXYVector<float> >::iterator &ritNode, 
+                                     CXYVector<float> &rkVPoint)
+{
+	cout << sizeof(ritNode) << endl;
+  tree<CXYVector<float> >* ptr = GetTree();
+  tree<CXYVector<float> >::iterator pos = ritNode;
+  
+  int iSize = ptr->depth(pos) + 2;
+  CXYMatrix<float> kM(iSize,6);
+  
+  // from bottom to top, fill chain 
+  int iRowInd = iSize - 1;
+  kM.SetRow(iRowInd, rkVPoint);
+  
+  while (ptr->is_valid(pos)) 
+  {
+    iRowInd --;
+    kM.SetRow(iRowInd, (*pos));
+    pos = ptr->parent(pos);
+  }
+  
+  // according previous node h1 and h2, get new h1 and h2
+  kM[iSize-1][4] = h1Function(kM);
+  kM[iSize-1][5] = h2Function(kM);
+  
+  //  char buffer[] = "test.mat";
+//  CXYFile::WriteMatrix("test.mat","w",kM);
+  
+  return kM;
+}
+//------------------------------------------------------------------------
+CXYMatrix<float> CXYSIS::GetNodeSamples(tree<CXYVector<float> >::iterator  &ritNode, int iSegInd)
+{
+  tree<CXYVector<float> >* ptr = GetTree();
+  tree<CXYVector<float> >::iterator pos = ritNode;
+  tree<CXYVector<float> >::iterator root = ptr->begin();
+  
+  CXYMatrix<float> kMSamplesOrg = GetSamplesOrg();
+  kMSamplesOrg = kMSamplesOrg * GetSegLength(iSegInd);
+  
+  // X, Y, Z, Weight, h1, h2
+  float XYZ_n2[3] = {(*pos)[0], (*pos)[1], (*pos)[2]};
+  float fWeight = (*pos)[3];
+  float fh1 = (*pos)[4];
+  float fh2 = (*pos)[5];
+  CXYVector<float> kV_2(3,XYZ_n2);
+  
+  CXYMatrix<float>& kMSamplesPoints = kMSamplesOrg;
+  
+  int iNumRow = kMSamplesPoints.GetRows();
+  CXYMatrix<float> kMSamplesVector(iNumRow,6);
+  for (int iRowInd = 0; iRowInd<iNumRow; iRowInd++) 
+  {
+    // translation
+    CXYVector<float> kVpoint = kMSamplesPoints.GetRow(iRowInd) + kV_2;
+    float fVector[6] = {kVpoint[0],kVpoint[1],kVpoint[2],fWeight,fh1,fh2};
+    CXYVector<float> kVector(6,fVector);
+    kMSamplesVector.SetRow(iRowInd, kVector);
+  }
+  
+  return kMSamplesVector;
+}
+//------------------------------------------------------------------------
+float CXYSIS::CalBeta_t(CXYMatrix<float> &kM)
+{
+  int iRow = kM.GetRows();
+  CXYVector<float> kV_NextPoint = kM.GetRow(iRow-1);
+  
+  float h1 = kV_NextPoint[4];
+  float h2 = kV_NextPoint[5];
+  float fBeta_t =  exp( - (m_fRho_1*h1 + m_fRho_2*h2)/ m_fTau_t );
+  
+  //  cout << "h1=" << h1 << " ";
+  //  cout << "h2=" << h2 << " ";
+  //  cout << "Beta_t= " <<  fBeta_t << endl;
+  return fBeta_t;
+}
+//------------------------------------------------------------------------
+float CXYSIS::BinSearchConstC(vector<float> vfBeta_t)
+{
+  CXYMath<float> kMath;
+  sort(vfBeta_t.begin(), vfBeta_t.end());
+  float fCons_Min = 0;
+  float fCons_Max = 1/vfBeta_t[0];
+  
+  float fCons_Cur = fCons_Max;
+  float fSumofMin = 0;
+  
+  for (unsigned int i = 0; i<vfBeta_t.size(); i++) 
+  {
+    //    cout << vfBeta_t[i] << endl;
+    fSumofMin = fSumofMin + min(fCons_Cur*vfBeta_t[i],1.0f);
+  }
+  //  cout << fSumofMin << endl;
+  //  cout << "begin" << endl;
+  //  cout << fCons_Min << " " << fCons_Cur << " " << fCons_Max << endl;  
+  float fCons_Cur_Prev = fCons_Cur;
+  
+  int iCount = 0;
+  while (fabs(fSumofMin-m_iMmax) > kMath.ZERO_TOLERANCE ) 
+  {   // for some case it will never stop, so I add condition
+    //    cout << fCons_Min << " " << fCons_Cur << " " << fCons_Max << endl;  
+    //    if(kMath.AlmostEqual2sComplement(fSumofMin,m_iMmax,10)) 
+    //    {
+    //        break;
+    //    }
+    if ((fSumofMin-m_iMmax) > kMath.ZERO_TOLERANCE )
+    {
+      fCons_Max = fCons_Cur;
+    }else{
+      fCons_Min = fCons_Cur;
+    }
+    fCons_Cur = fCons_Min + (fCons_Max - fCons_Min)/2;
+    
+    fSumofMin = 0;
+    for (unsigned int i = 0; i<vfBeta_t.size(); i++) 
+    {
+      fSumofMin = fSumofMin + min(fCons_Cur*vfBeta_t[i],1.0f);
+      //      cout << "ha";
+    }
+    //    cout << fCons_Cur_Prev << " " << fCons_Cur << endl;
+    //    if (fabs(fCons_Cur-fCons_Cur_Prev) < kMath.ZERO_TOLERANCE)
+    //    {
+    //      break;
+    //    }
+    if(kMath.AlmostEqual2sComplement(fCons_Cur_Prev,fCons_Cur,1) || iCount > min(max(40,m_iMmax),40))
+    {
+      break;
+    }
+    iCount++;
+    fCons_Cur_Prev = fCons_Cur;
+  }
+  cout << "iCount = " << iCount - 1 << endl;
+  cout << fSumofMin << endl;
+  cout << "vfBeta_t[0]   = " << vfBeta_t[0] << endl;
+  cout << "vfBeta_t[size]= " << vfBeta_t[vfBeta_t.size()-1] << endl;
+  cout << "Cons_Cur=" << fCons_Cur << endl;
+  return fCons_Cur;
+}
+//------------------------------------------------------------------------
+float CXYSIS::h1Function(CXYMatrix<float>& kM)
+{
+  int iNumRow = kM.GetRows();
+  int iConInd = iNumRow - 1;
+
+  float fPoint_cur[3] = {kM[iNumRow-1][0],kM[iNumRow-1][1],kM[iNumRow-1][2]};
+  CXYVector<float> kVPoint_cur(3,fPoint_cur);
+  
+  float fCollisionLength = GetCollisionLength();
+  
+  float fh1 = kM[iNumRow-2][4];
+  //  fh1 = 0;
+  float fLength = 0;
+  float fh1Collision = 0;
+  CXYVector<float> vDiff;
+  
+  vector<CXYTriple<int,int,float> >::iterator tripit;
+  CXYVector<float> kVPoint_prv(3);
+  for (tripit = m_vtriple.begin(); tripit != m_vtriple.end(); tripit++) {
+    if ((*tripit).first == iConInd && (*tripit).second < (*tripit).first) {
+
+      int ind_prv = (*tripit).second;
+      //        float fPoint_prv[3] = {kM[ind_prv][0],kM[ind_prv][1],kM[ind_prv][2]};
+      kVPoint_prv[0] = kM[ind_prv][0];
+      kVPoint_prv[1] = kM[ind_prv][1];
+      kVPoint_prv[2] = kM[ind_prv][2];
+      //        CXYVector<float> kVPoint_prv(3,fPoint_prv);
+      fLength = (kVPoint_cur - kVPoint_prv).Length();
+
+      fh1Collision = (fLength < fCollisionLength) ? 1 : 0;
+      fh1 += fh1Collision;
+    }
+  }
+  
+  return fh1;
+}
+
+//------------------------------------------------------------------------
+float CXYSIS::h2Function(CXYMatrix<float>& kM)
+{
+  int iNumRow = kM.GetRows();
+  int iConInd = iNumRow - 1;
+  
+  //  cout << iNumRow << endl;
+  float fPoint_cur[3] = {kM[iNumRow-1][0],kM[iNumRow-1][1],kM[iNumRow-1][2]};
+  CXYVector<float> kVPoint_cur(3,fPoint_cur);
+  
+  float fh2 = kM[iNumRow-2][5];
+  
+  //  CXYVector<float> kVContact(iNumRow-1);
+  
+  float fLength;
+  float fh2Prob = 0L;
+  
+  //int iCount =  GetCountContactNode(iNumRow-1);
+  int iCount = GetCountContactNodesFromMap(iNumRow-1);
+  
+  if (iCount <=3) {
+    fh2Prob = 1;
+  }else {
+    CXYVector<float> kV_Length(iCount);
+    CXYVector<float> kV_Connect(iCount);
+    
+    int iCountInd = 0;
+        
+    vector<CXYTriple<int,int,float> >::iterator tripit;
+    CXYVector<float> kVPoint_prv(3);
+    for (tripit = m_vtriple.begin(); tripit != m_vtriple.end(); tripit++) {
+      if ((*tripit).first == iConInd && (*tripit).second < (*tripit).first) {
+        int ind_prv = (*tripit).second;
+//        float fPoint_prv[3] = {kM[ind_prv][0],kM[ind_prv][1],kM[ind_prv][2]};
+        kVPoint_prv[0] = kM[ind_prv][0];
+        kVPoint_prv[1] = kM[ind_prv][1];
+        kVPoint_prv[2] = kM[ind_prv][2];
+//        CXYVector<float> kVPoint_prv(3,fPoint_prv);
+        fLength = (kVPoint_cur - kVPoint_prv).Length();
+        
+        kV_Length[iCountInd] = fLength;
+        kV_Connect[iCountInd] = (*tripit).third;
+        iCountInd++;
+      }
+    }
+    
+    fh2Prob = 1 - (kV_Connect.Dot(kV_Length)/
+                   (kV_Connect.Length() * kV_Length.Length()) );
+  }
+  
+  //  cout << kVContact.Length() <<" "<< kVDistInv.Length() << endl;
+  //  cout << fh2Prob << endl;
+  fh2 = fh2Prob;
+  return fh2;
+}
+//------------------------------------------------------------------------
+//int CXYSIS::GetCountContactNode(int iNode)
+//{
+//  //  CXYMatrix<float> kMObsexp = GetObsexpMatrix();
+//  
+//  int iRet = 0;
+//  for (int i=0; i<iNode; i++) {
+//    //    cout << "iNode = " << iNode << " i = " << i << " val = "  << kMObsexp[iNode][i] << endl;
+//    if ( (*m_pMDist)[iNode][i] > CXYMath<float>::ZERO_TOLERANCE) {
+//      //      cout << kMObsexp[iNode][i] << " ";
+//      iRet ++;
+//    }
+//  }
+//  return  (iRet);
+//}
+
+void CXYSIS::GetTargetDistribution(void)
+{
+  tree<CXYVector<float> >* ptr = GetTree();
+  int iLevel = ptr->max_depth();
+  //  cout << iLevel << endl;
+  tree<CXYVector<float> >::fixed_depth_iterator pos = ptr->begin_fixed(ptr->begin(),iLevel);
+  
+  
+  pos = ptr->begin_fixed(ptr->begin(),iLevel);
+  int iCountSamples = 0;
+  while (ptr->is_valid(pos)) 
+  {
+    iCountSamples ++;
+    ++pos;
+  }
+  //
+  
+  //new implementation
+  pos = ptr->begin_fixed(ptr->begin(),iLevel);
+  // enumerate all nodes at same level
+  
+  int iConformInd = 0;
+  CXYVector<float> kV_Weight(iCountSamples);
+  CXYVector<float> kV_Collision(iCountSamples);
+    
+  while (ptr->is_valid(pos)) {
+    tree<CXYVector<float> >::iterator prepos = pos;
+    CXYMatrix<float> kM(iLevel+1,6);
+    int iRowInd = iLevel;
+    while (ptr->is_valid(prepos)) {
+      kM.SetRow(iRowInd, (*prepos));
+      prepos = ptr->parent(prepos);
+      iRowInd --;
+    }
+    
+    float fWeight = 0;
+//    float fCollision = 0;
+    
+    //    int iCount = GetCountContactNode(kM.GetRows()-1);
+//    int iCount = kM.GetRows();
+    
+    
+    
+    
+//    cout << iCount << endl;
+    
+    list<int>::iterator lit;
+    for (lit = m_listConNodeInd.begin(); lit != m_listConNodeInd.end(); lit++) {
+      int iNode_1 = (*lit);
+      float fPoint_1[3] = {kM[iNode_1][0], kM[iNode_1][1], kM[iNode_1][2]};
+      CXYVector<float> kVPoint_1(3,fPoint_1);
+
+      map<int,float> mapConNodeInd = GetContactMap(iNode_1);
+
+      CXYVector<float> kV_Length(mapConNodeInd.size());
+      CXYVector<float> kV_Connect(mapConNodeInd.size());
+
+      int iVecInd = 0;
+
+      for (map<int,float>::iterator mapit = mapConNodeInd.begin(); mapit != mapConNodeInd.end(); mapit++) {
+        int iNode_2 = (*mapit).first;
+        float fPoint_2[3] = {kM[iNode_2][0], kM[iNode_2][1], kM[iNode_2][2]};
+        CXYVector<float> kVPoint_2(3,fPoint_2);
+
+        kV_Length[iVecInd] = (kVPoint_2 - kVPoint_1).Length();;
+        kV_Connect[iVecInd] = (*mapit).second;
+        
+//        cout << (*mapit).first <<" " << (*mapit).second << endl;
+        iVecInd ++;
+
+      }     
+      fWeight = fWeight + 1 - (kV_Connect.Dot(kV_Length)/
+                               (kV_Connect.Length() * kV_Length.Length()) );
+      
+    }
+    
+    
+    
+//    for (int iRow=0; iRow<iCount; iRow++) {
+//      float fPoint_cur[3] = {kM[iRow][0], kM[iRow][1], kM[iRow][2]};
+//      CXYVector<float> kVPoint_cur(3,fPoint_cur);
+//      
+//      int iCountNodeConnect = GetCountContactNode_All(iRow);
+//      
+//      CXYVector<float> kV_Length(iCountNodeConnect);
+//      CXYVector<float> kV_Connect(iCountNodeConnect);
+//      //      cout << iCountNodeConnect << endl;
+//      float fLength = 0;
+//      int iVecInd = 0;
+//      for (int jCol=0; jCol<iCount; jCol++) {
+//        if (iRow != jCol && (*m_pMDist)[iRow][jCol] > 0) {
+//          float fPoint_prv[3] = {kM[jCol][0], kM[jCol][1], kM[jCol][2]};
+//          CXYVector<float> kVPoint_prv(3,fPoint_prv);
+//          fLength = (kVPoint_cur - kVPoint_prv).Length();
+//          
+//          kV_Length[iVecInd] = fLength;
+//          kV_Connect[iVecInd] = (*m_pMDist)[iRow][jCol];
+////          cout <<iVecInd << "\t" << kV_Length[iVecInd] << "\t" << kV_Connect[iVecInd] << endl;
+//          
+////          if (fLength < GetCollisionLength() && jCol > iRow) {
+////            fCollision ++;
+////          }
+//          iVecInd ++;
+//        }
+//      }
+//      fWeight = fWeight + 1 - (kV_Connect.Dot(kV_Length)/
+//                               (kV_Connect.Length() * kV_Length.Length()) );
+////      cout << fWeight << endl;
+//    }
+////    kV_Weight[iConformInd] = exp(-fWeight/(.1*iCount));
+    kV_Weight[iConformInd] = exp(-fWeight);
+    
+    (*m_pVErr)[iConformInd] = kV_Weight[iConformInd];
+    
+    iConformInd ++;
+    ++pos;
+  }
+  
+//  kV_Weight.Normalize();
+  
+  pos = ptr->begin_fixed(ptr->begin(),iLevel);
+  iConformInd = 0;
+  while (ptr->is_valid(pos))
+  {
+//    (*pos)[3] = (*pos)[3] * kV_Weight[iConformInd];
+    (*pos)[3] = kV_Weight[iConformInd];
+    ++pos;
+    iConformInd++;
+  } 
+}
+
+//------------------------------------------------------------------------
+
+//int CXYSIS::GetCountContactNode_All(int iNode)
+//{
+//  //  CXYMatrix<float> kMObsexp = GetObsexpMatrix();
+//  int iNumRow = (*m_pMDist).GetRows();
+//  int iRet = 0;
+//  for (int i=0; i<iNumRow; i++) {
+//    if ( (*m_pMDist)[iNode][i] > 0) {
+//      iRet ++;
+//    }
+//  }
+//  return  (iRet);
+//}
+
+//------------------------------------------------------------------------
+void CXYSIS::WritePDB(char* cFN, CXYMatrix<float>& kM, int iInd)
+{
+  CXYPDB kPDB;
+  CXYPDBAtom kAtom;
+  
+  for (int iRow = 0; iRow < kM.GetRows(); iRow++) 
+  {
+    kAtom.SetRecName((char *)"ATOM");
+    kAtom.SetSerial(iRow);
+    kAtom.SetAtomicSym((char *)"CA");
+    kAtom.SetResName((char *)"ALA");
+    kAtom.SetChainID((char *)"A");
+    kAtom.SetResSeq(iRow);
+    kAtom.SetX(kM[iRow][0]);
+    kAtom.SetY(kM[iRow][1]);
+    kAtom.SetZ(kM[iRow][2]);
+    kAtom.SetSegID((char *)"C");
+    (kPDB.GetPDBAtoms())->push_back(kAtom);
+  }
+  
+  // write comments
+  
+  // pdb comments 
+  string sComment = "";
+  char strbuff[256] = "";
+  
+  sprintf(strbuff,
+          "REMARK  100 ErrFunction        = %8.3E\n",
+          (*m_pVErr)[iInd]);
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 CollisionFunction  = %8.3E\n",
+          (*m_pVEColl)[iInd]);
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff, 
+          "REMARK  100 PackingDensity     = %8.3f\n",
+          GetPackingDensity());
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 CollisionLength    = %8.3f\n", 
+          GetCollisionLength());
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 Weight = %8.3E\n",
+          kM[kM.GetRows()-1][3]);
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 h1     = %12.3E\n",
+          kM[kM.GetRows()-1][4]);
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 h2     = %12.3E\n",
+          kM[kM.GetRows()-1][5]);
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 beta_t = %12.3E\n",
+          CalBeta_t(kM));
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 Rho1   = %8.3f\n",
+          GetRho_1());
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 Rho2   = %8.3f\n",
+          GetRho_2());
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 Tau_t  = %8.3f\n",
+          GetTau_t());
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff,
+          "REMARK  100 Adjust = %12.3E\n",
+          GetAjust());
+  sComment = sComment +  strbuff;
+  
+  sprintf(strbuff, 
+          "REMARK  200 M_max  = %4d\n",
+          GetMmax());
+  sComment = sComment +  strbuff;
+    
+  
+  
+  CXYFile::WriteComment(cFN,"w",sComment.c_str());
+  
+  // write pdb
+  CXYFile::WriteAtomsToPDB(cFN,"a",kPDB);
+  
+}
+//------------------------------------------------------------------------
+void CXYSIS::WritePDBArr(void)
+{
+  cout << "Writting PDBs..." << endl;
+  tree<CXYVector<float> >* ptr = GetTree();
+  int iLevel = ptr->max_depth();
+  tree<CXYVector<float> >::fixed_depth_iterator pos = ptr->begin_fixed(ptr->begin(),iLevel);
+  
+  // sort weight
+  vector<tree<CXYVector<float> >::iterator> vPosIt;
+  vector<pair<float, int> > vWeight;
+  int NodeInd = 0;
+  float fWeight;
+  while (ptr->is_valid(pos)) 
+  {
+    fWeight = (*pos)[3];
+    vWeight.push_back(pair<float,int>(fWeight,NodeInd++));
+    vPosIt.push_back(pos);
+    ++pos;
+  }
+  
+  //  sort(vWeight.begin(), vWeight.end(), sort_greater_first()); // sort descent
+  sort(vWeight.begin(), vWeight.end(), sort_pair_first_greater<float,int>()); // sort descent
+  
+  char buffer[1024];
+  int iScale = 1;
+  
+  CXYMatrix<float> kM = CXYMatrix<float> (ptr->max_depth() +1,6);
+  for (unsigned iit = 0; iit<vWeight.size(); iit++) 
+  {
+    cout << vWeight[iit].first << " " << vWeight[iit].second << endl;
+    pos = vPosIt[vWeight[iit].second];
+    GetOneChain(kM,pos);
+    cout << "h1= " << kM[kM.GetRows()-1][4] << endl;
+    cout << "h2= " << kM[kM.GetRows()-1][5] << endl;
+    
+    for (int iRow=0; iRow < kM.GetRows(); iRow++) 
+    {
+      for (int iCol=0; iCol < 3; iCol++) 
+      {
+        kM[iRow][iCol] /= iScale;
+      }
+    }
+    //    cout << "h2= " << kM[kM.GetRows()-1][5] << endl;
+    
+    //    sprintf(buffer, "%s/%s_%s_chr%s_chr%s_%d_obsexp_%04d.pdb",
+    //            GetPDBPath(),"HIC",m_cCell,m_cChrNo,m_cChrNo,m_iResolution,iit+1);
+    
+   sprintf(buffer, "%s/%04d.pdb",GetOutPath(),iit+1);
+   WritePDB(buffer,kM, vWeight[iit].second);
+  }
+  
+}
+
+//------------------------------------------------------------------------
+void CXYSIS::GetOneChain(CXYMatrix<float>& rkM,
+                                     tree<CXYVector<float > >::iterator itNode)
+{
+  tree<CXYVector<float> >* ptr = GetTree();
+  tree<CXYVector<float> >::iterator pos = itNode;
+  
+  int iNumRow = ptr->max_depth() + 1;
+  
+  int iRowInd = iNumRow - 1;
+  while (ptr->is_valid(pos)) 
+  {
+    rkM.SetRow(iRowInd, (*pos));
+    --iRowInd;
+    pos = ptr->parent(pos);
+  }
+}
+//------------------------------------------------------------------------
+
+void CXYSIS::InitializeChain_SISRoot()
+{
+  // clear the queue
+  m_qPrvNodes.clear();
+  
+  tree< CXYVector<float> >* ptr;
+  tree< CXYVector<float> >::iterator top, root, pos;
+  ptr = GetTree();
+  
+  
+  top = ptr->begin();
+  float fV0[6] = {0,0,0,1,0,0};  // x, y, z, w, h1, h2
+  root = ptr->insert(top, CXYVector<float>(6,fV0));
+  
+  float fLen = GetSegLength(0);
+  float fV1[6] = {0,0,fLen,1,0,0};
+  pos = ptr->append_child(root, CXYVector<float>(6,fV1));
+  m_qPrvNodes.push_back(pos);
+
+  //  std::cout << ptr->max_depth() << std::endl;
+}
+
+//------------------------------------------------------------------------
+void CXYSIS::WritePtsArr(void)
+{
+  cout << "Writting Pts..." << endl;
+  tree<CXYVector<float> >* ptr = GetTree();
+  int iLevel = ptr->max_depth();
+  tree<CXYVector<float> >::fixed_depth_iterator pos = ptr->begin_fixed(ptr->begin(),iLevel);
+  
+  // sort weight
+  vector<tree<CXYVector<float> >::iterator> vPosIt;
+  vector<pair<float, int> > vWeight;
+  int NodeInd = 0;
+  float fWeight;
+  while (ptr->is_valid(pos)) 
+  {
+    fWeight = (*pos)[3];
+    vWeight.push_back(pair<float,int>(fWeight,NodeInd++));
+    vPosIt.push_back(pos);
+    ++pos;
+  }
+  
+  //  sort(vWeight.begin(), vWeight.end(), sort_greater_first()); // sort descent
+  sort(vWeight.begin(), vWeight.end(), sort_pair_first_greater<float,int>()); // sort descent
+  
+  char buffer[1024];
+  int iScale = 1;
+  
+  CXYMatrix<float> kM = CXYMatrix<float> (ptr->max_depth() +1,6);
+  for (unsigned iit = 0; iit<vWeight.size(); iit++) 
+  {
+    cout << vWeight[iit].first << " " << vWeight[iit].second << endl;
+    pos = vPosIt[vWeight[iit].second];
+    GetOneChain(kM,pos);
+    cout << "h1= " << kM[kM.GetRows()-1][4] << endl;
+    cout << "h2= " << kM[kM.GetRows()-1][5] << endl;
+    
+    for (int iRow=0; iRow < kM.GetRows(); iRow++) 
+    {
+      for (int iCol=0; iCol < 3; iCol++) 
+      {
+        kM[iRow][iCol] /= iScale;
+      }
+    }
+    //    cout << "h2= " << kM[kM.GetRows()-1][5] << endl;
+    
+    //    sprintf(buffer, "%s/%s_%s_chr%s_chr%s_%d_obsexp_%04d.pdb",
+    //            GetPDBPath(),"HIC",m_cCell,m_cChrNo,m_cChrNo,m_iResolution,iit+1);
+    sprintf(buffer, "%s/%04d.pts",GetOutPath(),iit+1);
+
+    ostream* fp;
+    fp = new std::ofstream(buffer);
+    for (int iRow = 0; iRow < kM.GetRows(); iRow++) 
+    {
+      *fp << kM[iRow][0] << "\t" << kM[iRow][1] << "\t" << kM[iRow][2] << "\t"\
+      << kM[iRow][3]<< "\t" << kM[iRow][4]<< "\t" << kM[iRow][5] << endl;
+    }
+    delete fp;
+    
+  }
+  
+}
+
+//------------------------------------------------------------------------
+CXYMatrix<float> CXYSIS::GrowthChain_NoCon(tree< CXYVector<float> >::iterator &ritNode,  CXYVector<float> &rkVPoint)
+{
+  tree<CXYVector<float> >* ptr = GetTree();
+  tree<CXYVector<float> >::iterator pos = ritNode;
+  
+  int iSize = ptr->depth(pos) + 2;
+  CXYMatrix<float> kM(iSize,rkVPoint.GetSize());
+  
+  // from bottom to top, fill chain 
+  int iRowInd = iSize - 1;
+  kM.SetRow(iRowInd, rkVPoint);
+  
+  while (ptr->is_valid(pos)) 
+  {
+    iRowInd --;
+    kM.SetRow(iRowInd, (*pos));
+    pos = ptr->parent(pos);
+  }
+  
+  // according previous node h1 and h2, get new h1 and h2
+  kM[iSize-1][4] = kM.GetRow(iSize-2)[4];
+  kM[iSize-1][5] = kM.GetRow(iSize-2)[5];
+  
+  //  char buffer[] = "test.mat";
+  //  CXYFile::WriteMatrix("test.mat","w",kM);
+  
+  return kM;
+}
+
+//------------------------------------------------------------------------
+
+// (i, j, value)
+// return j, value
+map<int, float> CXYSIS::GetContactMap(int iNode){
+  map<int,float> vMapInd;
+  vector<CXYTriple<int,int,float> >::iterator tripit;
+  for (tripit = m_vtriple.begin(); tripit != m_vtriple.end(); tripit++) {
+    if ( (*tripit).first == iNode ){
+      vMapInd.insert(pair<int,float>(make_pair ((*tripit).second, (*tripit).third)));
+    }
+  }
+  return vMapInd;
+}
+
+//------------------------------------------------------------------------
+int CXYSIS::GetCountContactNodesFromMap(int ind){
+  vector<CXYTriple<int,int,float> >::iterator tripit;
+  int iNum = 0;
+  for (tripit = m_vtriple.begin(); tripit != m_vtriple.end(); tripit++) {
+    if ( (*tripit).first == ind  && (*tripit).second < (*tripit).first ){
+      iNum ++;
+    }
+  }
+  return iNum;
+}
+
+
+//------------------------------------------------------------------------
+void CXYSIS::RandomPermutation(int ArrN[], int n, int ArrM[], int m){ // m <= n
+  MTRand mtrand;
+  assert(m<=n);
+  for (int i = n-1; i>0; i--) {
+    int j = mtrand.randInt(i);
+    swap(ArrN[i],ArrN[j]);
+  }
+  for (int i = 0; i<m; i++) {
+    ArrM[i] = ArrN[i];
+  }
+}
+
+//------------------------------------------------------------------------
+CXYVector<float> CXYSIS::GetNodeNextPosition(tree<CXYVector<float> >::iterator  &ritNode, int iSegInd, int ind){
+  tree<CXYVector<float> >::iterator pos = ritNode;
+  float XYZ_n2[3] = {(*pos)[0], (*pos)[1], (*pos)[2]};
+  float fWeight = (*pos)[3];
+  float fh1 = (*pos)[4];
+  float fh2 = (*pos)[5];
+  CXYVector<float> kV_2(3,XYZ_n2);
+  CXYVector<float> kV_NextPoint = (*m_pMSamplesOrg).GetRow(ind) * GetSegLength(iSegInd) + kV_2;
+  float fVector[6] = {kV_NextPoint[0],kV_NextPoint[1],kV_NextPoint[2],fWeight,fh1,fh2};
+
+  CXYVector<float> kV_NextVect(6, fVector );
+  return kV_NextVect;
+}
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------
+//CXYMatrix<float> CXYSIS::GrowthChain(tree< CXYVector<float> >::iterator &ritNode, 
+//                                     CXYVector<float> &rkVPoint)
+//{
+//  tree<CXYVector<float> >* ptr = GetTree();
+//  tree<CXYVector<float> >::iterator pos = ritNode;
+//  
+//  int iSize = ptr->depth(pos) + 2;
+//  CXYMatrix<float> kM(iSize,6);
+//  
+//  // from bottom to top, fill chain 
+//  int iRowInd = iSize - 1;
+//  kM.SetRow(iRowInd, rkVPoint);
+//  
+//  while (ptr->is_valid(pos)) 
+//  {
+//    iRowInd --;
+//    kM.SetRow(iRowInd, (*pos));
+//    pos = ptr->parent(pos);
+//  }
+//  
+//  // according previous node h1 and h2, get new h1 and h2
+//  kM[iSize-1][4] = h1Function(kM);
+//  kM[iSize-1][5] = h2Function(kM);
+//  
+//  //  char buffer[] = "test.mat";
+//	//  CXYFile::WriteMatrix("test.mat","w",kM);
+//  
+//  return kM;
+//}
+//------------------------------------------------------------------------
+//------------------------------------------------------------------------
+
+//vector<tree<CXYVector<float> >::iterator > CXYSIS::GrowOneChain_ByVector(
+//  tree< CXYVector<float> >::iterator &ritNode, 
+//  CXYVector<float> &rkVPoint,  int SegInd){
+//
+//
+//}
+
+
+
+
+
+
+
