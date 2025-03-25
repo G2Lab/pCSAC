@@ -1,7 +1,7 @@
 # pC-SAC 
 
 
-This guide provides instructions for installing the pC-SAC. 
+This guide provides instructions for installing pC-SAC. 
 pC-SAC is a tool that uses adaptive importance sampling technique with sequential Monte Carlo to generate a set of three-dimensional chromatin chains to enhance low-resolution Hi-C data. 
 
 ## Installation via Conda
