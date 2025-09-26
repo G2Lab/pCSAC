@@ -6,7 +6,9 @@ pC-SAC is a tool that uses adaptive importance sampling technique with sequentia
 
 ## Installation via Conda
 
+
 pC-SAC is available on conda by executing the following command.
+Notice: We have received reports that pC-SAC condas version is down, we are currently working on setting it up. In the mean time please install it locally.
 
     conda install pcsac
 
